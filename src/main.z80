@@ -90,10 +90,13 @@ MainLoop:
   ldh [rSCX], a
   call RainbowCopy
 
+  ; Get the 12 pixel tall tile effect ready
   xor a
   ldh [rSCY], a
-  ld a, 11
+  ld a, 12
   ldh [rLYC], a
+  ld a, 4
+  ldh [NextSCY], a
 
   ; Clear sprites
   call ClearOAM
@@ -259,16 +262,10 @@ Paused:
 PausedText:
   db "Paused"
 
+; Finishes up a stat interrupt
 stat:
-  push af
-.wait:
-  ldh a, [rSTAT]
-  and 3
-  jr nz, .wait
-
-  ldh a, [rSCY]
   add a, 4
-  ldh [rSCY], a
+  ldh [NextSCY], a
 
   ldh a, [rLYC]
   add a, 12

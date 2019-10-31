@@ -25,7 +25,10 @@ ret
 SECTION "vblank", ROM0[$0040]
 jp vblank
 SECTION "stat", ROM0[$0048]
-jp stat
+push af          ; 1
+ldh a, [NextSCY] ; 2
+ldh [rSCY], a    ; 2
+jp stat          ; 3
 SECTION "timer", ROM0[$0050]
 jp timer
 SECTION "serial", ROM0[$0058]

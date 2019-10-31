@@ -70,4 +70,5 @@ random1:        ds 2
 random2:        ds 2
 InitializedRandom: db ; Nonzero if random number generator has been seeded
 
+NextSCY:        db ; For the 12 pixel tall block effect
 
