@@ -336,13 +336,13 @@ ActorPlodder:
   call EnemyAutoBump
 .nowalk:
 
-  ld hl, .frames
-  call EnemyFourFrameAnimation
-  ld b, 0
+  ldh a, [retraces]
+  rra
+  and 4
+  add $50
+  ld b, 2
   call DrawActor
   jp EnemyCommon
-.frames:
-  db $4c, $50, $54, $50
 
 ActorSneaker:
   call EnemyFall
