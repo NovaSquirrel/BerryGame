@@ -1,13 +1,13 @@
 ; $0000 - $003F: RST handlers.
 SECTION "rst00", ROM0[$0000]
-ret
+  ret
 SECTION "rst08", ROM0[$0008]
-; add hl, a
-add a,l
-ld l,a
-jr nc, @+3
-inc h
-ret
+  ; add hl, a
+  add a,l
+  ld l,a
+  jr nc, @+3
+  inc h
+  ret
 SECTION "rst10", ROM0[$0010]
 ret
 SECTION "rst18", ROM0[$0018]
@@ -23,23 +23,35 @@ ret
 
 ; $0040 - $0067: Interrupt handlers.
 SECTION "vblank", ROM0[$0040]
-jp vblank
+  jp vblank
 SECTION "stat", ROM0[$0048]
-push af          ; 1
-ldh a, [NextSCY] ; 2
-ldh [rSCY], a    ; 2
-jp stat          ; 3
+  push af          ; 1
+  ldh a, [NextSCY] ; 2
+  ldh [rSCY], a    ; 2
+  jr stat          ; 3
 SECTION "timer", ROM0[$0050]
-jp timer
+  jp timer
 SECTION "serial", ROM0[$0058]
-jp serial
+  jp serial
 SECTION "joypad", ROM0[$0060]
-jp joypad
+  jp joypad
+
+SECTION "tiny_space", ROM0[$00068]
+; Finishes up a stat interrupt
+stat:
+  add a, 4
+  ldh [NextSCY], a
+
+  ldh a, [rLYC]
+  add a, 12
+  ldh [rLYC], a
+  pop af
+  reti
 
 ; $0100 - $0103: Startup handler.
 SECTION "header", ROM0[$00100]
-nop
-jp Init
+  nop
+  jp Init
 
 ; $0104 - $0133: The Nintendo Logo.
 DB $CE, $ED, $66, $66, $CC, $0D, $00, $0B

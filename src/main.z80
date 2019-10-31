@@ -262,14 +262,4 @@ Paused:
 PausedText:
   db "Paused"
 
-; Finishes up a stat interrupt
-stat:
-  add a, 4
-  ldh [NextSCY], a
-
-  ldh a, [rLYC]
-  add a, 12
-  ldh [rLYC], a
-  pop af
-  reti
 
