@@ -90,13 +90,7 @@ MainLoop:
   ldh [rSCX], a
   call RainbowCopy
 
-  ; Get the 12 pixel tall tile effect ready
-  xor a
-  ldh [rSCY], a
-  ld a, 12
-  ldh [rLYC], a
-  ld a, 4
-  ldh [NextSCY], a
+  call Init12PixelEffect
 
   ; Clear sprites
   call ClearOAM
@@ -239,17 +233,16 @@ NextLevel:
   and KEY_START
   jp z, MainLoop
 Paused:
+.loop:
   call wait_vblank
-
   ld a, 7
   ldh [rWX], a
   ld a, 144-8
   ldh [rWY], a
   ld a, LCDCF_ON|LCDCF_OBJ16|LCDCF_OBJON|LCDCF_BGON|LCDCF_BG8800|LCDCF_WINON|LCDCF_WIN9C00
   ldh [rLCDC],a
+  call Init12PixelEffect
 
-.loop:
-  call wait_vblank
   call readkeys
   ldh a, [KeyNew]
   and KEY_START
@@ -262,4 +255,12 @@ Paused:
 PausedText:
   db "Paused"
 
-
+Init12PixelEffect:
+  ; Get the 12 pixel tall tile effect ready
+  xor a
+  ldh [rSCY], a
+  ld a, 12
+  ldh [rLYC], a
+  ld a, 4
+  ldh [NextSCY], a
+  ret
