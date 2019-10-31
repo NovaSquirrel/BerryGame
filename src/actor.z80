@@ -921,9 +921,7 @@ EnemyCollideWithBlocks:
   ld hl, actor_pixely
   add hl, de
 
-  ldh a, [CameraPY]
-  add [hl]
-  ld b, a ; B = non-scrolled pixel Y position
+  ld b, [hl] ; B = non-scrolled pixel Y position
 
   inc l
 
@@ -945,8 +943,7 @@ EnemyCollideWithBlocks:
   ld l, a
 
   ; Colliding vertically?
-  ldh a, [CameraPY]
-  add [hl]
+  ld a, [hl]
   scf
   sbc b ; Note will subtract n-1
   sbc (16-1)
@@ -1060,9 +1057,7 @@ EnemyPlayerTouch:
   ld hl, actor_pixely
   add hl, de
 
-  ldh a, [CameraPY]
-  add [hl]
-  ld b, a ; B = non-scrolled pixel Y position
+  ld b, [hl] ; B = non-scrolled pixel Y position
   inc l
   ldh a, [CameraPX]
   add [hl]
@@ -1156,8 +1151,7 @@ EnemyFlying:
 
   ; Pick a random Y position
   ; and try until it works
-  ldh a, [LevelHeight]
-  ld b, a
+  ld b, 11 ; height
 .loop:
   call GetRandomNumber
   inc a

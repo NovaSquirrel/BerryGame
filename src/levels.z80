@@ -251,27 +251,6 @@ LoadLevel:
   ld [actors+0], a
   ld [actors+16], a
 .NotChipLevel:
-
-  ; Detect level height
-  ld hl, level_map+255
-.LevelHeightLoop:
-  ld a, [hl-]
-  or a
-  jr z, .LevelHeightLoop
-
-  ; Store level height and vertical camera limit
-  ld a, l
-  swap a
-  and 15
-  ldh [LevelHeight], a
-  ; snap up to 9 blocks tall if it's under that
-  cp 8
-  jr nc, .tall_enough
-  ld a, 8
-.tall_enough:
-
-  sub 8 ;9-1
-  ldh [CameraLimitBottom], a
   ret
 
 ; Decompresses map DE into RAM

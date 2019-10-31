@@ -35,26 +35,6 @@ InitCamera:
 .not_snap_r:
   ldh [CameraX+1], a
 
-  ldh a, [CameraLimitBottom]
-  ld b, a
-
-  ; Y
-  ld a, [PlayerPYL]
-  ldh [CameraY], a
-  ld a, [PlayerPYH]
-  sub 9/2
-  jr nc, .not_snap_u
-    xor a
-    ldh [CameraY], a
-.not_snap_u:
-  cp b ; Compare against limit
-  jr c, .not_snap_d
-    xor a
-    ldh [CameraY], a
-    ld a, b ; Set to limit
-.not_snap_d:
-  ldh [CameraY+1], a
-
   jp AdjustCamera.convert
 
 
@@ -106,54 +86,6 @@ AdjustCamera:
 
 ; ---------------------------------------
 
-  ; Get scroll target
-  ld a, [PlayerScrollPYL]
-  ld e, a
-  ld a, [PlayerScrollPYH]
-  sub 9/2
-  jr nc, .not_snap_u
-    xor a
-    ld e, a
-.not_snap_u:
-  ld hl, CameraLimitBottom
-  cp [hl] ; Compare against limit
-  jr c, .not_snap_d
-    xor a
-    ld e, a
-    ld a, [hl] ; Set to limit
-.not_snap_d:
-  ld d, a
-
-  ; Find difference
-  ldh a, [CameraY+0]
-  ld l, a
-  ldh a, [CameraY+1]
-  ld h, a
-
-  ld a, e
-  sub l
-  ld l, a
-  ld a, d
-  sbc h
-  ld h, a
-
-  ; Divide by 4
-  ld a, l
-  rept 4
-  sra h
-  rra
-  endr
-  ld l, a
-
-  ldh a, [CameraY+0]
-  add l
-  ldh [CameraY+0], a
-  ldh a, [CameraY+1]
-  adc h
-  ldh [CameraY+1], a
-
-; ---------------------------------------
-
 .convert:
   ; Convert camera to pixel coordinates
   ldh a, [CameraX+1]
@@ -167,22 +99,6 @@ AdjustCamera:
   ldh [CameraPX+0], a
   ld a, b
   ldh [CameraPX+1], a
-
-  ldh a, [CameraY+1]
-  ld b, a
-  ldh a, [CameraY+0]
-  rept 4
-    srl b
-    rra
-  endr
-  adc 0
-  ldh [CameraPY+0], a
-  ld a, b
-  ldh [CameraPY+1], a
-
-  xor a
-  ldh [CameraPY+0], a
-  ldh [CameraPY+1], a
   ret
 
 NegateDE:

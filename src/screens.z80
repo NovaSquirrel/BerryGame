@@ -444,10 +444,7 @@ ShowDie:
   ; Set up all the stars for the explosion
   ld hl, sprites
 .init_loop:
-  ldh a, [CameraPY]
-  ld b, a
   ldh a, [PlayerPY]
-  sub b
   add 8
   ld [hl+], a
 

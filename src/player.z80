@@ -306,8 +306,6 @@ DrawPlayer:
   sub c
   ld d, a
 
-  ldh a, [CameraPY]
-  ld c, a
   ldh a, [PlayerPYH]
   ld b, a
   ldh a, [PlayerPYL]
@@ -317,7 +315,7 @@ DrawPlayer:
   endr
   add 16
   ldh [PlayerPY], a
-  sub c
+  scale_y e
   ld e, a
 
   ; Write a default tile list
@@ -359,12 +357,6 @@ DrawPlayer:
   hswap [temp+0], [temp+1]
   hswap [temp+2], [temp+3]
 .NoFlip:
-
-
-; Scale Y
-  ld a, e
-  scale_y e
-  ld e, a
 
 ; --------------------------------
   ld a, e
