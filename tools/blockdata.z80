@@ -1,0 +1,79 @@
+; This is automatically generated. Edit "blocks.txt" instead
+SECTION "metatiledata", ROM0
+Metatiles:
+  db $0c, $0c, $0c, $0c ; EMPTY
+  db $a0, $a1, $b0, $b1 ; SOLID
+  db $0c, $0c, $0c, $0c ; DIRT
+  db $0c, $0c, $0c, $0c ; DIRT_D
+  db $0c, $0c, $0c, $0c ; DIRT_U
+  db $0c, $0c, $0c, $0c ; DIRT_UD
+  db $0c, $0c, $0c, $0c ; DIRT_R
+  db $0c, $0c, $0c, $0c ; DIRT_RD
+  db $0c, $0c, $0c, $0c ; DIRT_RU
+  db $0c, $0c, $0c, $0c ; DIRT_RUD
+  db $0c, $0c, $0c, $0c ; DIRT_L
+  db $0c, $0c, $0c, $0c ; DIRT_LD
+  db $0c, $0c, $0c, $0c ; DIRT_LU
+  db $0c, $0c, $0c, $0c ; DIRT_LUD
+  db $0c, $0c, $0c, $0c ; DIRT_LR
+  db $0c, $0c, $0c, $0c ; DIRT_LRD
+  db $0c, $0c, $0c, $0c ; DIRT_LRU
+  db $0c, $0c, $0c, $0c ; DIRT_LRUD
+  db $cc, $cc, $bc, $bc ; WATER
+  db $ac, $ac, $bc, $bc ; WATER_TOP
+  db $c4, $c5, $d4, $d5 ; LADDER
+  db $e1, $e2, $f1, $f2 ; SPRING
+  db $0c, $0c, $fd, $fe ; PRESSED_SPRING
+  db $a2, $a3, $b2, $b3 ; FENCE
+  db $0c, $0c, $0c, $0c ; GRASS
+  db $a8, $a9, $b8, $b9 ; FLOWER1
+  db $aa, $ab, $ba, $bb ; FLOWER2
+  db $ad, $af, $0c, $0c ; PLATFORM
+  db $ae, $af, $0c, $0c ; PLATFORM_L
+  db $ad, $ae, $0c, $0c ; PLATFORM_R
+  db $ae, $ae, $0c, $0c ; PLATFORM_LR
+  db $0c, $0c, $0c, $0c ; FALL_PLATFORM
+  db $0c, $0c, $0c, $0c ; FALL_PLATFORM_L
+  db $0c, $0c, $0c, $0c ; FALL_PLATFORM_R
+  db $0c, $0c, $0c, $0c ; FALL_PLATFORM_LR
+  db $e6, $e7, $f6, $f7 ; CHECKER
+  db $a4, $a5, $b4, $b5 ; POLE
+
+MetatileFlags:
+  db 0 ; EMPTY
+  db 192 ; SOLID
+  db 192 ; DIRT
+  db 192 ; DIRT_D
+  db 192 ; DIRT_U
+  db 192 ; DIRT_UD
+  db 192 ; DIRT_R
+  db 192 ; DIRT_RD
+  db 192 ; DIRT_RU
+  db 192 ; DIRT_RUD
+  db 192 ; DIRT_L
+  db 192 ; DIRT_LD
+  db 192 ; DIRT_LU
+  db 192 ; DIRT_LUD
+  db 192 ; DIRT_LR
+  db 192 ; DIRT_LRD
+  db 192 ; DIRT_LRU
+  db 192 ; DIRT_LRUD
+  db 0 ; WATER
+  db 0 ; WATER_TOP
+  db 0 ; LADDER
+  db 0 ; SPRING
+  db 0 ; PRESSED_SPRING
+  db 0 ; FENCE
+  db 0 ; GRASS
+  db 0 ; FLOWER1
+  db 0 ; FLOWER2
+  db 64 ; PLATFORM
+  db 64 ; PLATFORM_L
+  db 64 ; PLATFORM_R
+  db 64 ; PLATFORM_LR
+  db 64 ; FALL_PLATFORM
+  db 64 ; FALL_PLATFORM_L
+  db 64 ; FALL_PLATFORM_R
+  db 64 ; FALL_PLATFORM_LR
+  db 192 ; CHECKER
+  db 0 ; POLE

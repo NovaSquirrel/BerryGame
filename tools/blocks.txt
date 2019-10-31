@@ -1,0 +1,180 @@
+alias main_tiles $a0
+alias global_palette 0
+alias terrain_palette 1
+
+alias solid0 12
+alias solid1 13
+alias solid2 14
+alias solid3 15
+
+#######################################
+# Blocks!
+#######################################
+base main_tiles
+palette global_palette
+
++EMPTY
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++SOLID
+solid
+q 0,0
+
++DIRT
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_D
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_U
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_UD
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_R
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_RD
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_RU
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_RUD
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_L
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_LD
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_LU
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_LUD
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_LR
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_LRD
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_LRU
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++DIRT_LRUD
+solid
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++WATER
+t 12,2 12,2
+t 12,1 12,1
+
++WATER_TOP
+t 12,0 12,0
+t 12,1 12,1
+
++LADDER
+q 4,2
+
++SPRING
+q 1,4
+
++PRESSED_SPRING
+t 0:solid0 0:solid0
+t 13,5 14,5
+
++FENCE
+q 2,0
+
++GRASS
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++FLOWER1
+q 8,0
+
++FLOWER2
+q 10,0
+
++PLATFORM
+solid_top
+t 13,0 15,0
+t 0:solid0 0:solid0
+
++PLATFORM_L
+solid_top
+t 14,0 15,0
+t 0:solid0 0:solid0
+
++PLATFORM_R
+solid_top
+t 13,0 14,0
+t 0:solid0 0:solid0
+
++PLATFORM_LR
+solid_top
+t 14,0 14,0
+t 0:solid0 0:solid0
+
++FALL_PLATFORM
+solid_top
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++FALL_PLATFORM_L
+solid_top
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++FALL_PLATFORM_R
+solid_top
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++FALL_PLATFORM_LR
+solid_top
+t 0:solid0 0:solid0
+t 0:solid0 0:solid0
+
++CHECKER
+solid
+q 6,4
+
++POLE
+q 4,0

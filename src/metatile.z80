@@ -1,0 +1,288 @@
+; FHBG GB
+; Copyright (C) 2018 NovaSquirrel
+;
+; This program is free software: you can redistribute it and/or
+; modify it under the terms of the GNU General Public License as
+; published by the Free Software Foundation; either version 3 of the
+; License, or (at your option) any later version.
+;
+; This program is distributed in the hope that it will be useful, but
+; WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+; General Public License for more details.
+;
+; You should have received a copy of the GNU General Public License
+; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;
+
+SECTION "metatiles", ROM0
+
+META_SOLID_ALL = $c0 ; top two bits
+META_SOLID_TOP = $40 ; second to top bit only
+META_COLOR0 = $00
+META_COLOR1 = $01
+META_COLOR2 = $02
+META_COLOR3 = $03
+META_COLOR4 = $04
+META_COLOR5 = $05
+META_COLOR6 = $06
+META_COLOR7 = $07
+META_COLOR_MASK = $07
+
+IsNotBlock:
+  ; shift in a 0
+  sla b
+  ret
+IsDirt:
+  ld a, [hl]
+  cp BLOCK_DIRT
+  jr c, IsNotBlock
+  cp BLOCK_DIRT_LRUD+1
+  jr nc, IsNotBlock
+  ; shift in a 1
+  scf
+  rl b
+  ret
+IsPlatform:
+  ld a, [hl]
+  cp BLOCK_PLATFORM
+  jr c, IsNotBlock
+  cp BLOCK_PLATFORM_LR+1
+  jr nc, IsNotBlock
+  ; shift in a 1
+  scf
+  rl b
+  ret
+IsFallPlatform:
+  ld a, [hl]
+  cp BLOCK_FALL_PLATFORM
+  jr c, IsNotBlock
+  cp BLOCK_FALL_PLATFORM_LR+1
+  jr nc, IsNotBlock
+  ; shift in a 1
+  scf
+  rl b
+  ret
+
+ApplyAutotile:
+  ret
+
+  ld hl, level_map
+.loop:
+  ld a, [hl]
+
+  cp BLOCK_DIRT
+  jr nz, .not_dirt
+  ; Figure out which checker block to use
+  ld b, 0
+  push hl
+    ; Left
+    dec l
+    call IsDirt
+    ; Right
+    inc l
+    inc l
+    call IsDirt
+    ; Up
+    ld a, l
+    sub 17
+    ld l, a
+    call IsDirt
+    ; Down
+    ld a, l
+    add 32
+    ld l, a
+    call IsDirt
+  pop hl
+  ld a, BLOCK_DIRT
+  add b
+  ld [hl], a
+.not_dirt:
+
+  cp BLOCK_PLATFORM
+  jr nz, .not_platform
+  ld b, 0
+  inc l
+  call IsPlatform
+  dec l
+  dec l
+  call IsPlatform
+  inc l
+  ld a, BLOCK_PLATFORM
+  add b
+  ld [hl], a
+.not_platform:
+
+  cp BLOCK_FALL_PLATFORM
+  jr nz, .not_fall_platform
+  ld b, 0
+  inc l
+  call IsFallPlatform
+  dec l
+  dec l
+  call IsFallPlatform
+  inc l
+  ld a, BLOCK_FALL_PLATFORM
+  add b
+  ld [hl], a
+.not_fall_platform:
+
+  cp BLOCK_FLOWER1
+  jr nz, .not_flower
+  call GetRandomNumber
+  rra
+  jr c, .not_flower
+  ld [hl], BLOCK_FLOWER2
+.not_flower:
+
+  cp BLOCK_WATER
+  jr nz, .not_water
+  ; Check tile above
+  ld a, l
+  sub 16
+  ld c, a
+  ld b, level_map>>8
+  ld a, [bc]
+  cp BLOCK_WATER
+  jr z, .not_water
+  cp BLOCK_WATER_TOP
+  jr z, .not_water
+  ld a, BLOCK_WATER_TOP
+  ld [hl], a
+.not_water:
+
+  inc l
+  jp nz, .loop
+  ret
+
+RenderLevel:
+  call ApplyAutotile
+
+  ld bc, level_map
+  ld de, SCREEN1
+.loop:
+  ; get tile
+  ld a, [bc]
+  add a
+  add a
+
+  ld hl, Metatiles
+  add_hl_a
+  ld a, [hl+]
+  ld [de], a
+  inc e
+
+  ld a, [hl+]
+  ld [de], a
+  ld a, e
+  add 31
+  ld e, a
+  
+  ld a, [hl+]
+  ld [de], a
+  inc e
+
+  ld a, [hl]
+  ld [de], a
+  ld a, e
+  sub 31
+  ld e, a
+
+  ; next block
+  inc c
+  jr z, .exit
+
+  ; next row of blocks?
+  ld a, c
+  and $0f
+  jr nz, .loop
+
+  ; next row, move DE down
+  ld hl, 32
+  add hl, de
+  ld d, h
+  ld e, l
+  
+  jr .loop
+.exit:
+
+  ldh a, [IsGameBoyColor]
+  cp $11
+  ret nz
+
+RenderLevelColor:
+  vram_bank_1
+
+  ld bc, level_map
+  ld de, SCREEN1
+.loop:
+  ; get tile
+  ld a, [bc]
+
+  cp BLOCK_FLOWER1
+  jr z, .is_flowers
+  cp BLOCK_FLOWER2
+  jr z, .is_flowers
+
+  ld hl, MetatileFlags
+  add_hl_a
+  ld a, [hl]
+  and META_COLOR_MASK
+  ld [de], a
+  inc e
+
+  ld [de], a
+  push af
+  ld a, e
+  add 31
+  ld e, a
+  pop af
+  
+  ld [de], a
+  inc e
+
+  ld [de], a
+  ld a, e
+  sub 31
+  ld e, a
+
+.next_block:
+  ; next block
+  inc c
+  jr z, .exit
+
+  ; next row of blocks?
+  ld a, c
+  and $0f
+  jr nz, .loop
+
+  ; next row, move DE down
+  ld hl, 32
+  add hl, de
+  ld d, h
+  ld e, l
+  
+  jr .loop
+.exit:
+  vram_bank_0
+  ret
+
+.is_flowers:
+  ld a, META_COLOR2
+  ld [de], a
+  inc e
+
+  ld [de], a
+  ld a, e
+  add 31
+  ld e, a
+  
+  ld a, META_COLOR1
+  ld [de], a
+  inc e
+
+  ld [de], a
+  ld a, e
+  sub 31
+  ld e, a
+  jr .next_block
