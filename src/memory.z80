@@ -66,8 +66,7 @@ EnemyList:      ds 2 ; Pointer to an enemy list
 
 IsGameBoyColor: db ; $11 if Game Boy Color
 
-random1:        ds 2
-random2:        ds 2
+seed:           ds 4
 InitializedRandom: db ; Nonzero if random number generator has been seeded
 
 NextSCY:        db ; For the 12 pixel tall block effect

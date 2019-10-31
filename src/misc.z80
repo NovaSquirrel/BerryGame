@@ -218,59 +218,68 @@ ClearAttributes:
   ret
 
 GetRandomNumber:
-  ; Adapted from the random number generator used in Nova the Squirrel
-  ; http://codebase64.org/doku.php?id=base:two_very_fast_16bit_pseudo_random_generators_as_lfsr
+  ; Initialize the random number generator if it hasn't already been initialized
   ldh a, [InitializedRandom]
   or a
   jr nz, .already
   ldh a, [retraces]
-  ld [random1+0], a
+  ld [seed+0], a
   inc a
-  ld [random1+1], a
+  ld [seed+1], a
   inc a
-  ld [random2+0], a
+  ld [seed+0], a
   inc a
-  ld [random2+1], a
+  ld [seed+1], a
   ld a, 1
   ld [InitializedRandom], a
 .already:
+  ; Adapted from http://wiki.nesdev.com/w/index.php/Random_number_generator/Linear_feedback_shift_register_(advanced)
 
   push bc
-  push de
-  lda b, [random1+0]
-  lda c, [random1+1]
-  lda d, [random2+0]
-  lda e, [random2+1]
-  ; LFSR 1
-  ld a,c
+  ; rotate the middle bytes left
+  ldh a, [seed+0]
+  ld c, a
+
+  ldh a, [seed+1]
+  ldh [seed+2], a
+  ; compute seed+1 ($C5>>1 = %1100010)
+  ldh a, [seed+3] ; original high byte
+  srl a
+  ld b, a ; reverse: 100011
+  srl a
+  srl a
+  srl a
+  srl a
+  xor b
+  srl a
+  xor b
+  xor c ; combine with original low byte
+  ldh [seed+1], a
+  ; compute seed+0 ($C5 = %11000101)
+
+  ldh a, [seed+2] ; will move to seed+3 at the end
+  ld c, a         ; save it for then
+
+  ldh a, [seed+3] ; original high byte
+  ld b, a
+  add a
+  xor b
   add a
   add a
-  xor c
-  add a
-  xor c
   add a
   add a
-  xor c
-  add a
-  rl b         ;shift this left, "random" bit comes from low
-  rl c
-  ; LFSR 2
-  ld a, e
-  add a
-  xor e
+  xor b
   add a
   add a
-  rr d         ;shift this right, random bit comes from high - nicer when eor with random1
-  rl e
-  lda [random1+0], b
-  lda [random1+1], c
-  lda [random2+0], d
-  lda [random2+1], e
-  ld a, b
-  xor d
-  pop de
+  xor b
+  ldh [seed+0], a
+
+  ; finish rotating byte 2 into 3
+  ld a, c
+  ldh [seed+3], a
   pop bc
 
+  ldh a, [seed+0]
   ret
 
 ; -----------------------------------------
