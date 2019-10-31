@@ -23,83 +23,81 @@ q 0,0
 
 +DIRT
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 6,2 8,2
+t 6,3 8,3
 
 +DIRT_D
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 6,2 8,2
+t 9,3 11,3
 
 +DIRT_U
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 9,2 11,2
+t 6,3 8,3
 
 +DIRT_UD
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 9,2 11,2
+t 9,3 11,3
 
 +DIRT_R
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+q 6,2
 
 +DIRT_RD
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 6,2 7,2
+t 9,3 12,3
 
 +DIRT_RU
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 9,2 10,2
+t 6,3 10,4
 
 +DIRT_RUD
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 9,2 10,2
+t 9,3 10,3
 
 +DIRT_L
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+q 7,2
 
 +DIRT_LD
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 7,2 8,2
+t 12,3 11,3
 
 +DIRT_LU
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 10,2 11,2
+t 10,4 8,3
 
 +DIRT_LUD
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 10,2 11,2
+t 10,3 11,3
 
 +DIRT_LR
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 7,2 7,2
+t 7,3 7,3
 
 +DIRT_LRD
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 7,2 7,2
+t 12,3 12,3
 
 +DIRT_LRU
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 10,2 10,2
+t 10,4 10,4
 
 +DIRT_LRUD
 solid
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+t 10,2 10,2
+t 10,3 10,3
 
 +WATER
 t 12,2 12,2
@@ -113,7 +111,7 @@ t 12,1 12,1
 q 4,2
 
 +SPRING
-q 1,4
+q 2,4
 
 +PRESSED_SPRING
 t 0:solid0 0:solid0

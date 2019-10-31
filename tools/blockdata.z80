@@ -3,26 +3,26 @@ SECTION "metatiledata", ROM0
 Metatiles:
   db $0c, $0c, $0c, $0c ; EMPTY
   db $a0, $a1, $b0, $b1 ; SOLID
-  db $0c, $0c, $0c, $0c ; DIRT
-  db $0c, $0c, $0c, $0c ; DIRT_D
-  db $0c, $0c, $0c, $0c ; DIRT_U
-  db $0c, $0c, $0c, $0c ; DIRT_UD
-  db $0c, $0c, $0c, $0c ; DIRT_R
-  db $0c, $0c, $0c, $0c ; DIRT_RD
-  db $0c, $0c, $0c, $0c ; DIRT_RU
-  db $0c, $0c, $0c, $0c ; DIRT_RUD
-  db $0c, $0c, $0c, $0c ; DIRT_L
-  db $0c, $0c, $0c, $0c ; DIRT_LD
-  db $0c, $0c, $0c, $0c ; DIRT_LU
-  db $0c, $0c, $0c, $0c ; DIRT_LUD
-  db $0c, $0c, $0c, $0c ; DIRT_LR
-  db $0c, $0c, $0c, $0c ; DIRT_LRD
-  db $0c, $0c, $0c, $0c ; DIRT_LRU
-  db $0c, $0c, $0c, $0c ; DIRT_LRUD
+  db $c6, $c8, $d6, $d8 ; DIRT
+  db $c6, $c8, $d9, $db ; DIRT_D
+  db $c9, $cb, $d6, $d8 ; DIRT_U
+  db $c9, $cb, $d9, $db ; DIRT_UD
+  db $c6, $c7, $d6, $d7 ; DIRT_R
+  db $c6, $c7, $d9, $dc ; DIRT_RD
+  db $c9, $ca, $d6, $ea ; DIRT_RU
+  db $c9, $ca, $d9, $da ; DIRT_RUD
+  db $c7, $c8, $d7, $d8 ; DIRT_L
+  db $c7, $c8, $dc, $db ; DIRT_LD
+  db $ca, $cb, $ea, $d8 ; DIRT_LU
+  db $ca, $cb, $da, $db ; DIRT_LUD
+  db $c7, $c7, $d7, $d7 ; DIRT_LR
+  db $c7, $c7, $dc, $dc ; DIRT_LRD
+  db $ca, $ca, $ea, $ea ; DIRT_LRU
+  db $ca, $ca, $da, $da ; DIRT_LRUD
   db $cc, $cc, $bc, $bc ; WATER
   db $ac, $ac, $bc, $bc ; WATER_TOP
   db $c4, $c5, $d4, $d5 ; LADDER
-  db $e1, $e2, $f1, $f2 ; SPRING
+  db $e2, $e3, $f2, $f3 ; SPRING
   db $0c, $0c, $fd, $fe ; PRESSED_SPRING
   db $a2, $a3, $b2, $b3 ; FENCE
   db $0c, $0c, $0c, $0c ; GRASS

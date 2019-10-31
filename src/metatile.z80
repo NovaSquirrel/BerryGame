@@ -65,8 +65,6 @@ IsFallPlatform:
   ret
 
 ApplyAutotile:
-  ret
-
   ld hl, level_map
 .loop:
   ld a, [hl]
