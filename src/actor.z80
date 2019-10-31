@@ -277,8 +277,8 @@ ActorChip:
   add hl, de
   ld [hl], 0
 
-  ld a, $0c
-  ld b, 3
+  ld a, $9c
+  ld b, 4
   call DrawActorWithoutFlip
 
   call EnemyPlayerTouch

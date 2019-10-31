@@ -41,32 +41,32 @@ Metatiles:
 
 MetatileFlags:
   db 0 ; EMPTY
-  db 192 ; SOLID
-  db 192 ; DIRT
-  db 192 ; DIRT_D
-  db 192 ; DIRT_U
-  db 192 ; DIRT_UD
-  db 192 ; DIRT_R
-  db 192 ; DIRT_RD
-  db 192 ; DIRT_RU
-  db 192 ; DIRT_RUD
-  db 192 ; DIRT_L
-  db 192 ; DIRT_LD
-  db 192 ; DIRT_LU
-  db 192 ; DIRT_LUD
-  db 192 ; DIRT_LR
-  db 192 ; DIRT_LRD
-  db 192 ; DIRT_LRU
-  db 192 ; DIRT_LRUD
-  db 0 ; WATER
-  db 0 ; WATER_TOP
-  db 0 ; LADDER
-  db 0 ; SPRING
-  db 0 ; PRESSED_SPRING
-  db 0 ; FENCE
-  db 0 ; GRASS
-  db 0 ; FLOWER1
-  db 0 ; FLOWER2
+  db 194 ; SOLID
+  db 193 ; DIRT
+  db 193 ; DIRT_D
+  db 193 ; DIRT_U
+  db 193 ; DIRT_UD
+  db 193 ; DIRT_R
+  db 193 ; DIRT_RD
+  db 193 ; DIRT_RU
+  db 193 ; DIRT_RUD
+  db 193 ; DIRT_L
+  db 193 ; DIRT_LD
+  db 193 ; DIRT_LU
+  db 193 ; DIRT_LUD
+  db 193 ; DIRT_LR
+  db 193 ; DIRT_LRD
+  db 193 ; DIRT_LRU
+  db 193 ; DIRT_LRUD
+  db 4 ; WATER
+  db 4 ; WATER_TOP
+  db 3 ; LADDER
+  db 2 ; SPRING
+  db 2 ; PRESSED_SPRING
+  db 3 ; FENCE
+  db 1 ; GRASS
+  db 1 ; FLOWER1
+  db 1 ; FLOWER2
   db 64 ; PLATFORM
   db 64 ; PLATFORM_L
   db 64 ; PLATFORM_R
@@ -76,4 +76,4 @@ MetatileFlags:
   db 64 ; FALL_PLATFORM_R
   db 64 ; FALL_PLATFORM_LR
   db 192 ; CHECKER
-  db 0 ; POLE
+  db 3 ; POLE

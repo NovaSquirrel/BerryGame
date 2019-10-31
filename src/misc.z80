@@ -369,7 +369,7 @@ BG_Palette:
   RGB_Color 17, 19, 31
   RGB_Color  0, 10,  0
   RGB_Color 10, 31,  0 ; green
-  RGB_Color 21, 10,  0 ; brown
+  RGB_Color 27, 21, 17 ; brown
 ; 2 red
   RGB_Color 17, 19, 31
   RGB_Color 10,  0,  0
@@ -423,15 +423,15 @@ Sprite_Palette:
   RGB_Color  0,  0,  0
   RGB_Color 31, 15,  0
   RGB_Color 31, 31, 31
-; 4
+; 4 strawberry
   RGB_Color  0,  0,  0
-  RGB_Color  0,  0,  0
+  RGB_Color 12,  0,  0
   RGB_Color 31,  0,  0
-  RGB_Color 31, 31, 31
-; 5
+  RGB_Color  0, 31,  0
+; 5 Nova
   RGB_Color  0,  0,  0
-  RGB_Color  0,  0,  0
-  RGB_Color 31,  0,  0
+  RGB_Color  0,  0, 10
+  RGB_Color  5, 31,  5
   RGB_Color 31, 31, 31
 ; 6
   RGB_Color  0,  0,  0

@@ -7,6 +7,12 @@ alias solid1 13
 alias solid2 14
 alias solid3 15
 
+alias pal_gray 0
+alias pal_green 1
+alias pal_red 2
+alias pal_orange 3
+alias pal_blue 4
+
 #######################################
 # Blocks!
 #######################################
@@ -17,9 +23,13 @@ palette global_palette
 t 0:solid0 0:solid0
 t 0:solid0 0:solid0
 
+palette pal_red
+
 +SOLID
 solid
 q 0,0
+
+palette pal_green
 
 +DIRT
 solid
@@ -99,6 +109,8 @@ solid
 t 10,2 10,2
 t 10,3 10,3
 
+palette pal_blue
+
 +WATER
 t 12,2 12,2
 t 12,1 12,1
@@ -107,8 +119,12 @@ t 12,1 12,1
 t 12,0 12,0
 t 12,1 12,1
 
+palette pal_orange
+
 +LADDER
 q 4,2
+
+palette pal_red
 
 +SPRING
 q 2,4
@@ -117,8 +133,12 @@ q 2,4
 t 0:solid0 0:solid0
 t 13,5 14,5
 
+palette pal_orange
+
 +FENCE
 q 2,0
+
+palette pal_green
 
 +GRASS
 t 0:solid0 0:solid0
@@ -129,6 +149,8 @@ q 8,0
 
 +FLOWER2
 q 10,0
+
+palette pal_gray
 
 +PLATFORM
 solid_top
@@ -170,9 +192,13 @@ solid_top
 t 0:solid0 0:solid0
 t 0:solid0 0:solid0
 
+palette pal_gray
+
 +CHECKER
 solid
 q 6,4
+
+palette pal_orange
 
 +POLE
 q 4,0
