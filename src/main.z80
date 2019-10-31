@@ -92,7 +92,7 @@ MainLoop:
 
   xor a
   ldh [rSCY], a
-  ld a, 12
+  ld a, 11
   ldh [rLYC], a
 
   ; Clear sprites
@@ -261,11 +261,10 @@ PausedText:
 
 stat:
   push af
-
 .wait:
-;  ldh a, [rSTAT]
-;  and 3
-;  jr nz, .wait
+  ldh a, [rSTAT]
+  and 3
+  jr nz, .wait
 
   ldh a, [rSCY]
   add a, 4
