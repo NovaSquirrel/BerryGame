@@ -101,7 +101,7 @@ ShowMainMenu:
   ldh [IsEditMode], a
 
   ; Clear the nametable
-  call ClearAndAddFHBGText
+  call ClearAndAddTitleText
   ld hl, SCREEN1
   ld b, 9
 .clear_loop:
@@ -313,7 +313,7 @@ ExtrasText:
 ; ---------------------------------------------------
 
 ShowCredits:
-  call ClearAndAddFHBGText
+  call ClearAndAddTitleText
 
   ld hl, CreditsText1
   ld de, SCREEN1+2+5*32
@@ -372,7 +372,7 @@ PressAToContinue:
 ; ---------------------------------------------------
 
 ShowHelp:
-  call ClearAndAddFHBGText
+  call ClearAndAddTitleText
 
   ld hl, HelpText1
   ld de, SCREEN1+2+4*32
@@ -427,14 +427,14 @@ HelpText9:
 
 ; ---------------------------------------------------
 
-ClearAndAddFHBGText:
+ClearAndAddTitleText:
   call ClearNametable
-  ld hl, FHBGText
-  ld de, SCREEN1+8+1*32
+  ld hl, TitleText
+  ld de, SCREEN1+5+1*32
   jp strcpy
 
-FHBGText:
-  db "FHBG",0
+TitleText:
+  db "Berry game?",0
 
 ; ---------------------------------------------------
 
@@ -470,6 +470,7 @@ ShowDie:
 .wait:
   call ScreenOn
   call wait_vblank
+  call Init12PixelEffect
   ld a, sprites>>8
   call run_dma
 

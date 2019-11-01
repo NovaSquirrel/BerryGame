@@ -75,7 +75,7 @@ EditorLoop:
   add a ; * 8
   add a
   add a
-  add (1*8)+16
+  add (3*8)+16
   ld [$fe00], a ; Y position
 
   ldh a, [CursorX]
@@ -155,7 +155,10 @@ EditorLoop:
   jr z, .NotDown
   ldh a, [CursorY]
   inc a
-  and 15
+  cp 12
+  jr nz, .DownGood
+  xor a
+.DownGood:
   ldh [CursorY], a
 .NotDown:
 
@@ -163,7 +166,10 @@ EditorLoop:
   jr z, .NotUp
   ldh a, [CursorY]
   dec a
-  and 15
+  bit 7, a
+  jr z, .UpGood
+  ld a, 11
+.UpGood:
   ldh [CursorY], a
 .NotUp:
 
@@ -213,7 +219,7 @@ EditorLoop:
 .RedrawTile:
   ; Calculate screen position
   ldh a, [CursorY]
-  inc a
+  add 3
   ld l, a
   ld h, 0
   add hl, hl
@@ -246,7 +252,7 @@ ShowEditorMenu:
 ;  call UploadTitlePalette
   call ClearAndWriteOAM
 
-  call ClearAndAddFHBGText
+  call ClearAndAddTitleText
   call ClearAttributes
 
   xor a ; first option
@@ -395,7 +401,7 @@ ShowEditorEnemyList:
   call wait_vblank
   call ScreenOff
   call ClearAndWriteOAM
-  call ClearAndAddFHBGText
+  call ClearAndAddTitleText
 
   ld hl, EditorEnemyListAdd
   ld de, SCREEN1+4+11*32
@@ -695,7 +701,7 @@ ConvertLevelLoop:
 
 ; Draws a level on the screen using the level editor tiles
 DrawLevelPreview:
-  ld hl, SCREEN1+2+32
+  ld hl, SCREEN1+2+32*3
   ld de, edit_map
 .loop:
   ; Write one tile
@@ -706,7 +712,7 @@ DrawLevelPreview:
 
   ; Stop if at end of level
   ld a, e
-  or a
+  cp 16*12
   ret z
   ; New row?
   and $0f
