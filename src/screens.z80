@@ -19,7 +19,7 @@ SECTION "screens", ROM0
 
 ShowTitle:
   ; Decompress title level
-  ld de, title
+  ld de, level_title
   call DecompressMap
   call RenderLevel
   call UploadLevelPalette

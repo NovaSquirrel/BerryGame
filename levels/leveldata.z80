@@ -1,0 +1,263 @@
+; This is automatically generated. Edit level JSON files instead
+level_bird:
+  db LVL_H_CHECKER|15, $b0
+  db LVL_H_PLAT|1, $a3
+  db LVL_H_PLAT|1, $ab
+  db LVL_H_PLAT|1, $a7
+  db LVL_H_PLAT|1, $95
+  db LVL_H_PLAT|1, $99
+  db LVL_H_PLAT|1, $87
+  db LVL_H_PLAT|1, $9d
+  db LVL_H_PLAT|1, $8b
+  db LVL_H_PLAT|1, $79
+  db LVL_H_PLAT|1, $67
+  db LVL_H_PLAT|1, $75
+  db LVL_H_PLAT|1, $83
+  db LVL_H_PLAT|1, $91
+  db LVL_H_FENCE|1, $81
+  db LVL_H_FENCE|1, $73
+  db LVL_H_FENCE|1, $65
+  db LVL_H_FENCE|1, $57
+  db LVL_H_FENCE|1, $69
+  db LVL_H_FENCE|1, $7b
+  db LVL_H_FENCE|1, $8d
+  db LVL_DONE, $98
+
+level_burger:
+  db LVL_V_CHECKER|10, $00
+  db LVL_V_CHECKER|9, $0f
+  db LVL_H_DIRT|15, $b0
+  db LVL_H_FLOWER|2, $a2
+  db LVL_H_SOLID|5, $99
+  db LVL_H_FLOWER|2, $54
+  db LVL_H_SOLID|4, $8a
+  db LVL_H_SOLID|3, $7b
+  db LVL_RECT|LVL_SOLID,   $5c, $12
+  db LVL_RECT|LVL_SOLID,   $3d, $11
+  db LVL_SOLID,   $3e
+  db LVL_H_PLAT|1, $61
+  db LVL_H_PLAT|2, $34
+  db LVL_V_LADDER|4, $63
+  db LVL_V_LADDER|2, $35
+  db LVL_H_FENCE|2, $24
+  db LVL_H_DIRT|2, $64
+  db LVL_RECT|LVL_POLE,    $76, $30
+  db LVL_SPRING,  $7a
+  db LVL_POLE,    $a9
+  db LVL_DONE, $96
+
+level_cage:
+  db LVL_SOLID,   $52
+  db LVL_SOLID,   $5c
+  db LVL_V_SOLID|3, $61
+  db LVL_V_SOLID|3, $6d
+  db LVL_SOLID,   $ac
+  db LVL_SOLID,   $a2
+  db LVL_SPRING,  $94
+  db LVL_SPRING,  $9a
+  db LVL_H_CHECKER|2, $a3
+  db LVL_H_CHECKER|2, $a9
+  db LVL_H_PLAT|2, $b6
+  db LVL_RECT|LVL_POLE,    $67, $40
+  db LVL_SOLID,   $84
+  db LVL_SOLID,   $75
+  db LVL_SOLID,   $66
+  db LVL_SOLID,   $57
+  db LVL_SOLID,   $68
+  db LVL_SOLID,   $79
+  db LVL_SOLID,   $8a
+  db LVL_DONE, $97
+
+level_emptylevel:
+  db LVL_V_CHECKER|11, $00
+  db LVL_DONE, $55
+
+level_grass_hill:
+  db LVL_RECT|LVL_DIRT,    $6e, $51
+  db LVL_H_DIRT|13, $b0
+  db LVL_H_GRASS|3, $a1
+  db LVL_H_DIRT|8, $a5
+  db LVL_H_DIRT|7, $96
+  db LVL_H_DIRT|1, $89
+  db LVL_H_FLOWER|2, $8b
+  db LVL_H_GRASS|1, $87
+  db LVL_GRASS,   $7a
+  db LVL_GRASS,   $8c
+  db LVL_FLOWER,  $79
+  db LVL_H_DIRT|1, $92
+  db LVL_H_FLOWER|1, $82
+  db LVL_H_PLAT|1, $71
+  db LVL_H_PLAT|1, $54
+  db LVL_DONE, $94
+
+level_island:
+  db LVL_RECT|LVL_DIRT,    $95, $25
+  db LVL_H_FENCE|7, $24
+  db LVL_H_PLAT|3, $7b
+  db LVL_H_PLAT|3, $71
+  db LVL_RECT|LVL_SOLID,   $0e, $61
+  db LVL_RECT|LVL_SOLID,   $00, $61
+  db LVL_RECT|LVL_WATER,   $a0, $14
+  db LVL_RECT|LVL_WATER,   $ab, $14
+  db LVL_H_PLAT|1, $34
+  db LVL_H_PLAT|1, $3a
+  db LVL_H_SOLID|3, $36
+  db LVL_H_GRASS|2, $85
+  db LVL_H_FLOWER|2, $88
+  db LVL_RECT|LVL_POLE,    $46, $40
+  db LVL_RECT|LVL_POLE,    $49, $40
+  db LVL_DONE, $78
+
+level_island2:
+  db LVL_V_CHECKER|2, $32
+  db LVL_V_CHECKER|1, $43
+  db LVL_CHECKER, $54
+  db LVL_H_PLAT|2, $62
+  db LVL_H_SOLID|3, $68
+  db LVL_H_SOLID|2, $59
+  db LVL_H_SOLID|2, $4a
+  db LVL_SOLID,   $3d
+  db LVL_V_LADDER|1, $5c
+  db LVL_H_FENCE|2, $3a
+  db LVL_RECT|LVL_POLE,    $78, $30
+  db LVL_RECT|LVL_POLE,    $7b, $30
+  db LVL_H_CHECKER|3, $b8
+  db LVL_RECT|LVL_WATER,   $bc, $03
+  db LVL_RECT|LVL_WATER,   $b0, $03
+  db LVL_H_DIRT|3, $b4
+  db LVL_H_FENCE|3, $a4
+  db LVL_DONE, $99
+
+level_ladder_platforms:
+  db LVL_V_LADDER|2, $62
+  db LVL_H_PLAT|3, $96
+  db LVL_V_LADDER|2, $75
+  db LVL_RECT|LVL_LADDER,  $97, $11
+  db LVL_V_LADDER|2, $7a
+  db LVL_V_LADDER|2, $6d
+  db LVL_RECT|LVL_DIRT,    $90, $22
+  db LVL_RECT|LVL_DIRT,    $9d, $22
+  db LVL_RECT|LVL_WATER,   $b3, $09
+  db LVL_PLAT,    $63
+  db LVL_PLAT,    $74
+  db LVL_PLAT,    $7b
+  db LVL_PLAT,    $6c
+  db LVL_DONE, $77
+
+level_narrow:
+  db LVL_RECT|LVL_CHECKER, $00, $81
+  db LVL_RECT|LVL_CHECKER, $0e, $81
+  db LVL_RECT|LVL_DIRT,    $72, $13
+  db LVL_RECT|LVL_DIRT,    $7a, $13
+  db LVL_H_FLOWER|3, $6a
+  db LVL_H_FLOWER|3, $62
+  db LVL_DIRT,    $95
+  db LVL_DIRT,    $9a
+  db LVL_POLE,    $a5
+  db LVL_POLE,    $aa
+  db LVL_H_DIRT|15, $b0
+  db LVL_SPRING,  $a6
+  db LVL_SPRING,  $a9
+  db LVL_DONE, $5a
+
+level_pillars:
+  db LVL_POLE,    $b2
+  db LVL_RECT|LVL_POLE,    $a4, $10
+  db LVL_RECT|LVL_POLE,    $96, $20
+  db LVL_RECT|LVL_POLE,    $99, $20
+  db LVL_RECT|LVL_POLE,    $ab, $10
+  db LVL_POLE,    $bd
+  db LVL_SOLID,   $ad
+  db LVL_SOLID,   $9b
+  db LVL_SOLID,   $a2
+  db LVL_SOLID,   $94
+  db LVL_SOLID,   $86
+  db LVL_SOLID,   $89
+  db LVL_RECT|LVL_DIRT,    $87, $31
+  db LVL_H_GRASS|1, $77
+  db LVL_DONE, $7b
+
+level_stairs:
+  db LVL_V_CHECKER|11, $00
+  db LVL_V_CHECKER|11, $0f
+  db LVL_H_CHECKER|5, $01
+  db LVL_H_CHECKER|5, $09
+  db LVL_RECT|LVL_CHECKER, $43, $33
+  db LVL_V_CHECKER|2, $57
+  db LVL_V_CHECKER|1, $68
+  db LVL_CHECKER, $79
+  db LVL_V_CHECKER|5, $6e
+  db LVL_V_CHECKER|3, $7d
+  db LVL_V_CHECKER|2, $8c
+  db LVL_V_CHECKER|1, $9b
+  db LVL_H_DIRT|6, $b1
+  db LVL_H_FLOWER|2, $a5
+  db LVL_SPRING,  $a1
+  db LVL_H_PLAT|1, $61
+  db LVL_H_CHECKER|5, $b8
+  db LVL_H_GRASS|1, $a2
+  db LVL_H_PLAT|1, $81
+  db LVL_H_PLAT|1, $41
+  db LVL_RECT|LVL_POLE,    $88, $20
+  db LVL_CHECKER, $aa
+  db LVL_RECT|LVL_POLE,    $84, $20
+  db LVL_DONE, $23
+
+level_title:
+  db LVL_V_CHECKER|10, $0a
+  db LVL_H_CHECKER|10, $b0
+  db LVL_H_DIRT|7, $a0
+  db LVL_SPRING,  $97
+  db LVL_FLOWER,  $82
+  db LVL_H_GRASS|1, $80
+  db LVL_H_FENCE|3, $93
+  db LVL_RECT|LVL_WATER,   $a8, $01
+  db LVL_H_DIRT|2, $90
+  db LVL_V_CHECKER|3, $30
+  db LVL_V_CHECKER|3, $36
+  db LVL_H_CHECKER|4, $31
+  db LVL_H_CHECKER|4, $61
+  db LVL_DONE, $87
+
+level_twin_ladder:
+  db LVL_H_DIRT|6, $57
+  db LVL_H_DIRT|5, $b5
+  db LVL_H_PLAT|2, $99
+  db LVL_H_DIRT|6, $82
+  db LVL_H_PLAT|2, $54
+  db LVL_V_LADDER|5, $55
+  db LVL_V_SOLID|3, $42
+  db LVL_V_SOLID|2, $2d
+  db LVL_SOLID,   $15
+  db LVL_H_PLAT|4, $25
+  db LVL_RECT|LVL_WATER,   $bb, $04
+  db LVL_RECT|LVL_WATER,   $b0, $04
+  db LVL_V_LADDER|9, $1a
+  db LVL_DONE, $67
+
+level_zigzag:
+  db LVL_V_CHECKER|8, $00
+  db LVL_H_DIRT|15, $b0
+  db LVL_V_CHECKER|1, $0f
+  db LVL_RECT|LVL_DIRT,    $4c, $63
+  db LVL_H_DIRT|2, $3d
+  db LVL_H_DIRT|1, $2e
+  db LVL_H_PLAT|7, $81
+  db LVL_V_LADDER|2, $86
+  db LVL_H_PLAT|6, $55
+  db LVL_V_LADDER|2, $58
+  db LVL_H_GRASS|3, $a0
+  db LVL_H_FLOWER|1, $aa
+  db LVL_H_DIRT|3, $21
+  db LVL_H_FENCE|1, $13
+  db LVL_H_GRASS|1, $11
+  db LVL_GRASS,   $3c
+  db LVL_GRASS,   $2d
+  db LVL_GRASS,   $2e
+  db LVL_RECT|LVL_DIRT,    $51, $20
+  db LVL_RECT|LVL_DIRT,    $62, $10
+  db LVL_DIRT,    $73
+  db LVL_RECT|LVL_POLE,    $0a, $40
+  db LVL_RECT|LVL_POLE,    $34, $40
+  db LVL_DONE, $98
+

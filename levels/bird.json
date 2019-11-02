@@ -8,7 +8,7 @@
 		"TileHeight":	16,
 		"GridWidth":	16,
 		"GridHeight":	15,
-		"ExportFormat":	"FHBGGB",
+		"ExportFormat":	"BerryGBC",
 		"FormatVersion":	1
 	},
 	"Header":	{
@@ -18,137 +18,137 @@
 	"Layers":	[{
 			"Name":	"Foreground",
 			"Type":	"Rectangle",
-			"Tileset":	"fhbgfg",
+			"Tileset":	"berryfg",
 			"Data":	[{
 					"Id":	"CHECKER",
 					"X":	0,
-					"Y":	8,
+					"Y":	11,
 					"W":	16,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	3,
-					"Y":	7,
+					"Y":	10,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	11,
-					"Y":	7,
+					"Y":	10,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	7,
-					"Y":	7,
+					"Y":	10,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	5,
-					"Y":	6,
+					"Y":	9,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	9,
-					"Y":	6,
+					"Y":	9,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	7,
-					"Y":	5,
+					"Y":	8,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	13,
-					"Y":	6,
+					"Y":	9,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	11,
-					"Y":	5,
+					"Y":	8,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	9,
-					"Y":	4,
+					"Y":	7,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	7,
-					"Y":	3,
+					"Y":	6,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	5,
-					"Y":	4,
+					"Y":	7,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	3,
-					"Y":	5,
+					"Y":	8,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAT",
 					"X":	1,
+					"Y":	9,
+					"W":	2,
+					"H":	1
+				}, {
+					"Id":	"FENCE",
+					"X":	1,
+					"Y":	8,
+					"W":	2,
+					"H":	1
+				}, {
+					"Id":	"FENCE",
+					"X":	3,
+					"Y":	7,
+					"W":	2,
+					"H":	1
+				}, {
+					"Id":	"FENCE",
+					"X":	5,
 					"Y":	6,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"FENCE",
-					"X":	1,
+					"X":	7,
 					"Y":	5,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"FENCE",
-					"X":	3,
-					"Y":	4,
-					"W":	2,
-					"H":	1
-				}, {
-					"Id":	"FENCE",
-					"X":	5,
-					"Y":	3,
-					"W":	2,
-					"H":	1
-				}, {
-					"Id":	"FENCE",
-					"X":	7,
-					"Y":	2,
-					"W":	2,
-					"H":	1
-				}, {
-					"Id":	"FENCE",
 					"X":	9,
-					"Y":	3,
+					"Y":	6,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"FENCE",
 					"X":	11,
-					"Y":	4,
+					"Y":	7,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"FENCE",
 					"X":	13,
-					"Y":	5,
+					"Y":	8,
 					"W":	2,
 					"H":	1
 				}, {
 					"Id":	"PLAYER",
 					"X":	8,
-					"Y":	6,
+					"Y":	9,
 					"W":	1,
 					"H":	1
 				}]

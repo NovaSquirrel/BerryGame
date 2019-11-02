@@ -89,45 +89,45 @@ LVL_H_DIRT    = $C0
   ; mm mm ee ee cL
   ; m = map pointer, e = enemy list, c = chips needed, L = enemy limit
 LevelHeaders:
-  dw island, GoombasEnemyList
+  dw level_island, GoombasEnemyList
   db $04
 
-  dw stairs, SpinnerEnemyList
+  dw level_stairs, SpinnerEnemyList
   db $54
 
-  dw island2, SneakerEnemyList
+  dw level_island2, SneakerEnemyList
   db $04
 
-  dw burger, BurgerEnemyList
+  dw level_burger, BurgerEnemyList
   db $58
 
-  dw zigzag, BallEnemyList
+  dw level_zigzag, BallEnemyList
   db $04
 
-  dw bird, OwlEnemyList
+  dw level_bird, OwlEnemyList
   db $04
 
-  dw pillars, FireJumpEnemyList
+  dw level_pillars, FireJumpEnemyList
   db $04
 
-  dw twin_ladder, BurgerEnemyList
-  db $76
+  dw level_twin_ladder, BurgerEnemyList
+  db $74
 
   ; ???
-  dw stairs, SpinnerEnemyList
+  dw level_stairs, SpinnerEnemyList
   db $a8
 
-  dw grass_hill, ThwompEnemyList
+  dw level_grass_hill, ThwompEnemyList
   db $05
 
-  dw ladder_platforms, OwlEnemyList2
+  dw level_ladder_platforms, OwlEnemyList2
   db $05
 
-  dw cage, SneakerEnemyList
+  dw level_cage, SneakerEnemyList
   db $05
 
 
-  dw stairs, SampleEnemyList
+  dw level_stairs, SampleEnemyList
   db $04
 
 
@@ -161,19 +161,6 @@ SampleEnemyList:
   db ACTOR_SPINNER, ACTOR_SPINNER, ACTOR_SPINNER, ACTOR_SPINNER
   db ACTOR_BURGER, ACTOR_BURGER, ACTOR_BURGER, ACTOR_BURGER
   db 0
-include "../levels/bird.s" ;
-include "../levels/burger.s" ;
-include "../levels/cage.s"
-include "../levels/grass_hill.s"
-include "../levels/island.s" ;
-include "../levels/island2.s" ;
-include "../levels/ladder_platforms.s"
-include "../levels/narrow.s"
-include "../levels/pillars.s"
-include "../levels/stairs.s" ;
-include "../levels/twin_ladder.s" ;
-include "../levels/zigzag.s" ;
-include "../levels/title.s"
 
 ;--------------------------------
 ; level decompression

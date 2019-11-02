@@ -8,7 +8,7 @@
 		"TileHeight":	16,
 		"GridWidth":	16,
 		"GridHeight":	15,
-		"ExportFormat":	"FHBGGB",
+		"ExportFormat":	"BerryGBC",
 		"FormatVersion":	1
 	},
 	"Header":	{
@@ -18,7 +18,7 @@
 	"Layers":	[{
 			"Name":	"Foreground",
 			"Type":	"Rectangle",
-			"Tileset":	"fhbgfg",
+			"Tileset":	"berryfg",
 			"Data":	[{
 					"Id":	"CHECKER",
 					"X":	0,
