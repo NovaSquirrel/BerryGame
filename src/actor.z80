@@ -1539,7 +1539,7 @@ DrawActor:
   ld [hl], d  ; X
   
   ; Cancel if offscreen
-  cp 144+16
+  cp 192+16 ; 144 * 4/3
   jr nc, .cancel
   ld a, d
   cp 160+8
