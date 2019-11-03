@@ -422,7 +422,7 @@ ActorBurger:
   sub b
   bit 7, a
   jr z, .abs
-    xor 255
+    cpl
     inc a
 .abs:
   add a
