@@ -28,12 +28,12 @@ SECTION "levels", ROM0
 ; 05 yx    - fall platform
 ; 06 yx    - ladder
 ; 07 yx    - fence
-; 08 yx    - grass
+; 08 yx    - leaves
 ; 09 yx    - flower
 ; 0a yx    - spring
 ; 0b yx    - water
 ; 0c yx    - pole
-; 0d       -
+; 0d yx    - log
 ; 0e       -
 ; 0f       -
 
@@ -48,7 +48,7 @@ SECTION "levels", ROM0
 ; 7n yx    - platform horiz
 ; 8n yx    - fall platform horiz
 ; 9n yx    - fence horiz
-; An yx    - grass horiz
+; An yx    - leaves horiz
 ; Bn yx    - flowers horiz
 ; Cn       -
 ; Dn       -
@@ -69,6 +69,7 @@ LVL_FLOWER    = $09
 LVL_SPRING    = $0a
 LVL_WATER     = $0b
 LVL_POLE      = $0c
+LVL_LOG       = $0d
 
 LVL_RECT      = $10 ; OR with the above list
 
@@ -99,7 +100,7 @@ LevelHeaders:
   db $04
 
   dw level_burger, BurgerEnemyList
-  db $58
+  db $56
 
   dw level_zigzag, BallEnemyList
   db $04
@@ -170,7 +171,7 @@ SingleBlockList: ; for 0x and 1x
   db BLOCK_EMPTY,    BLOCK_CHECKER,       BLOCK_SOLID,  BLOCK_DIRT
   db BLOCK_PLATFORM, BLOCK_FALL_PLATFORM, BLOCK_LADDER, BLOCK_FENCE
   db BLOCK_GRASS,    BLOCK_FLOWER1,       BLOCK_SPRING, BLOCK_WATER
-  db BLOCK_POLE
+  db BLOCK_POLE,     BLOCK_LOG
 
 MultiBlockList: ; for all other commands
 ; vert

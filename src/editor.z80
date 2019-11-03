@@ -65,7 +65,7 @@ ShowEditor:
   ld [hl], a 
   add hl, de
   inc a
-  cp $10|LVL_POLE+1
+  cp $10|LVL_LOG+1
   jr nz, .draw_side_loop
 
 
@@ -131,7 +131,7 @@ EditorLoop:
   jr z, .NotBDown
   ldh a, [CursorBrush]
   inc a
-  cp LVL_POLE+1
+  cp LVL_LOG+1
   jr c, .NoBDownCorrect
   ld a, 1
 .NoBDownCorrect:
@@ -143,7 +143,7 @@ EditorLoop:
   ldh a, [CursorBrush]
   dec a
   jr nz, .NoBUpCorrect
-  ld a, LVL_POLE
+  ld a, LVL_LOG
 .NoBUpCorrect:
   ldh [CursorBrush], a
 .NotBUp:

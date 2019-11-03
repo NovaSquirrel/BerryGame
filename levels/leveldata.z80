@@ -53,19 +53,20 @@ level_cage:
   db LVL_V_SOLID|3, $6d
   db LVL_SOLID,   $ac
   db LVL_SOLID,   $a2
-  db LVL_SPRING,  $94
-  db LVL_SPRING,  $9a
   db LVL_H_CHECKER|2, $a3
   db LVL_H_CHECKER|2, $a9
   db LVL_H_PLAT|2, $b6
   db LVL_RECT|LVL_POLE,    $67, $40
-  db LVL_SOLID,   $84
   db LVL_SOLID,   $75
   db LVL_SOLID,   $66
   db LVL_SOLID,   $57
   db LVL_SOLID,   $68
   db LVL_SOLID,   $79
-  db LVL_SOLID,   $8a
+  db LVL_FENCE,   $47
+  db LVL_FENCE,   $65
+  db LVL_FENCE,   $56
+  db LVL_FENCE,   $58
+  db LVL_FENCE,   $69
   db LVL_DONE, $97
 
 level_emptylevel:
@@ -75,7 +76,6 @@ level_emptylevel:
 level_grass_hill:
   db LVL_RECT|LVL_DIRT,    $6e, $51
   db LVL_H_DIRT|13, $b0
-  db LVL_H_GRASS|3, $a1
   db LVL_H_DIRT|8, $a5
   db LVL_H_DIRT|7, $96
   db LVL_H_DIRT|1, $89
@@ -88,6 +88,9 @@ level_grass_hill:
   db LVL_H_FLOWER|1, $82
   db LVL_H_PLAT|1, $71
   db LVL_H_PLAT|1, $54
+  db LVL_RECT|LVL_POLE,    $76, $10
+  db LVL_H_GRASS|2, $65
+  db LVL_GRASS,   $56
   db LVL_DONE, $94
 
 level_island:
@@ -185,7 +188,6 @@ level_stairs:
   db LVL_RECT|LVL_CHECKER, $43, $33
   db LVL_V_CHECKER|2, $57
   db LVL_V_CHECKER|1, $68
-  db LVL_CHECKER, $79
   db LVL_V_CHECKER|5, $6e
   db LVL_V_CHECKER|3, $7d
   db LVL_V_CHECKER|2, $8c
@@ -201,6 +203,7 @@ level_stairs:
   db LVL_RECT|LVL_POLE,    $88, $20
   db LVL_CHECKER, $aa
   db LVL_RECT|LVL_POLE,    $84, $20
+  db LVL_PLAT,    $69
   db LVL_DONE, $23
 
 level_title:

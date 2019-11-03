@@ -25,7 +25,7 @@ Metatiles:
   db $e2, $e3, $f2, $f3 ; SPRING
   db $0c, $0c, $fd, $fe ; PRESSED_SPRING
   db $a2, $a3, $b2, $b3 ; FENCE
-  db $0c, $0c, $0c, $0c ; GRASS
+  db $c2, $c3, $d2, $d3 ; GRASS
   db $a8, $a9, $b8, $b9 ; FLOWER1
   db $aa, $ab, $ba, $bb ; FLOWER2
   db $ad, $af, $0c, $0c ; PLATFORM
@@ -37,7 +37,12 @@ Metatiles:
   db $0c, $0c, $0c, $0c ; FALL_PLATFORM_R
   db $0c, $0c, $0c, $0c ; FALL_PLATFORM_LR
   db $e6, $e7, $f6, $f7 ; CHECKER
+  db $a6, $a7, $b6, $b7 ; ROCK
+  db $ec, $ed, $fc, $fd ; CLOUD_L
+  db $ee, $ee, $fd, $fd ; CLOUD_M
+  db $ee, $ef, $fd, $ff ; CLOUD_R
   db $a4, $a5, $b4, $b5 ; POLE
+  db $c0, $c1, $d0, $d1 ; LOG
 
 MetatileFlags:
   db 0 ; EMPTY
@@ -76,4 +81,9 @@ MetatileFlags:
   db 64 ; FALL_PLATFORM_R
   db 64 ; FALL_PLATFORM_LR
   db 192 ; CHECKER
+  db 192 ; ROCK
+  db 0 ; CLOUD_L
+  db 0 ; CLOUD_M
+  db 0 ; CLOUD_R
   db 3 ; POLE
+  db 3 ; LOG

@@ -36,4 +36,9 @@
   enum_elem BLOCK_FALL_PLATFORM_R
   enum_elem BLOCK_FALL_PLATFORM_LR
   enum_elem BLOCK_CHECKER
+  enum_elem BLOCK_ROCK
+  enum_elem BLOCK_CLOUD_L
+  enum_elem BLOCK_CLOUD_M
+  enum_elem BLOCK_CLOUD_R
   enum_elem BLOCK_POLE
+  enum_elem BLOCK_LOG

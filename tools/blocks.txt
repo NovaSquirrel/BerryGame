@@ -141,8 +141,7 @@ q 2,0
 palette pal_green
 
 +GRASS
-t 0:solid0 0:solid0
-t 0:solid0 0:solid0
+q 2,2
 
 +FLOWER1
 q 8,0
@@ -198,7 +197,29 @@ palette pal_gray
 solid
 q 6,4
 
++ROCK
+solid
+q 6,0
+
++CLOUD_L
+t 12,4 13,4
+t 12,5 13,5
+
++CLOUD_M
+t 14,4 14,4
+t 13,5 13,5
+
++CLOUD_R
+t 14,4 15,4
+t 13,5 15,5
+
+
 palette pal_orange
 
 +POLE
 q 4,0
+
++LOG
+q 0,2
+
+

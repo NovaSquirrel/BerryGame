@@ -125,6 +125,46 @@ ApplyAutotile:
   ld [hl], a
 .not_fall_platform:
 
+  cp BLOCK_CHECKER
+  jr nz, .not_checker
+    ld b, h
+    ld c, l
+
+    ; Left
+    dec c
+    ld a, [bc]
+    cp BLOCK_CHECKER
+    jr z, .not_water
+
+    ; Right
+    inc c
+    inc c
+    ld a, [bc]
+    cp BLOCK_CHECKER
+    jr z, .not_water
+
+    ; Up
+    ld a, c
+    sub 16+1
+    ld c, a
+    ld a, [bc]
+    cp BLOCK_CHECKER
+    jr z, .not_water
+
+    ; Down
+    ld a, c
+    add 32
+    ld c, a
+    ld a, [bc]
+    cp BLOCK_CHECKER
+    jr z, .not_water
+
+    ; Then finally replace it with the rock
+    ld a, BLOCK_ROCK
+    ld [hl], a
+.not_checker:
+
+
   cp BLOCK_FLOWER1
   jr nz, .not_flower
   call GetRandomNumber

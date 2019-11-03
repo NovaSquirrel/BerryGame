@@ -45,6 +45,7 @@ RectRules = [
   {"T":"WATER",          "W":16,  "H":16, "O": "db LVL_RECT|LVL_WATER,   &P, &R"},
   {"T":"SPRING",         "W":16,  "H":16, "O": "db LVL_RECT|LVL_SPRING,  &P, &R"},
   {"T":"POLE",           "W":16,  "H":16, "O": "db LVL_RECT|LVL_POLE,    &P, &R"},
+  {"T":"LOG",            "W":16,  "H":16, "O": "db LVL_RECT|LVL_LOG,     &P, &R"},
 ];
 
 
