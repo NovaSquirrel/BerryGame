@@ -193,6 +193,11 @@ MainLoop:
   ld a, 7
   ld [hl+], a
 
+  ; Set state to auto paused
+  ld [hl], astate_autopaused
+  inc l
+  ld [hl], 20
+
   ; Write the incremented pointer back
   inc de
   ld a, e

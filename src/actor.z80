@@ -51,11 +51,7 @@ actor_var3  = 11
 actor_pixely = 12
 actor_pixelx = 13
 
-astate_normal = 0
-astate_stunned = 1
-astate_paused = 2
-astate_autopaused = 3 ; automatically unpauses
-astate_active = 4
+; Actor state variables found in defines
 
 actor_size  = 16
 

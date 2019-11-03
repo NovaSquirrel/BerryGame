@@ -23,3 +23,9 @@
   enum_elem ACTOR_PLAYER_BURGER
 
 ; ----------------------------------------------
+
+astate_normal = 0
+astate_stunned = 1
+astate_paused = 2
+astate_autopaused = 3 ; automatically unpauses
+astate_active = 4
