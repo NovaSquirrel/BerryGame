@@ -418,7 +418,20 @@ ActorGeorge:
   jp EnemyCommon
 
 ActorBurger:
-  ld a, $20
+  ldh a, [PlayerPXH]
+  ld b, a
+  ld hl, actor_pxh
+  add hl, de
+  ld a, [hl]
+  sub b
+  bit 7, a
+  jr z, .abs
+    xor 255
+    inc a
+.abs:
+  add a
+  add a
+  add $0a
   call EnemyFlying
 
   ld a, $48
@@ -837,6 +850,7 @@ EnemyCopyPosition:
   pop de
   ret
 
+; Common behavior called by most enemies
 EnemyCommon:
   ; Increase enemy count
   ld hl, EnemyCount
@@ -851,10 +865,10 @@ EnemyCommon:
   cp astate_stunned
   jr nz, .not_stunned ; Normal state
 .yes_stunned:
-  dec [hl]
+  dec [hl] ; Decrease the timer
   jr nz, .not_stunned
   dec l
-  ld [hl], 0
+  ld [hl], 0 ; Cancel the status if timer hits zero
 .not_stunned:
 
 ; ----------------------
@@ -1290,10 +1304,12 @@ EnemyAutoBump:
 
 EnemyFall:
   call EnemyGravity
+  call EnemyAutopauseWhenWrap
 
   call EnemyStandingOnSolid
   ret nc
 
+  ; Fell on something, so move them up
   ld hl, actor_vyl
   add hl, de
   xor a
@@ -1360,6 +1376,13 @@ EnemyStandingOnSolid:
 
 
 EnemyGravity:
+  ; Don't fall if autopaused
+  ld hl, actor_state
+  add hl, de
+  ld a, [hl]
+  cp astate_autopaused
+  ret z
+
   ld hl, actor_vyl
   add hl, de
 
@@ -1388,12 +1411,35 @@ EnemyGravity:
 .GoingUp:
 
   ; Apply gravity
+  ; HL = actor+actor_pyl
   ld a, [hl]
   add c
   ld [hl+], a
   ld a, [hl]
   adc b
   ld [hl], a
+  ret
+
+EnemyAutopauseWhenWrap:
+  ld hl, actor_pyh
+  add hl, de
+  ld a, [hl]
+  cp 13
+  jr c, .NoPauseFromBottom
+    ld [hl], 0
+    dec l
+    ld [hl], 0
+
+    ld hl, actor_state
+    add hl, de
+    ld a, [hl]
+    cp astate_stunned
+    jr z, .NoPauseFromBottom
+
+    ld [hl], astate_autopaused
+    inc l
+    ld [hl], 60
+.NoPauseFromBottom:
   ret
 
 EnemyDespawnTimer:
