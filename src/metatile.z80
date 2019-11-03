@@ -131,6 +131,7 @@ ApplyAutotile:
   rra
   jr c, .not_flower
   ld [hl], BLOCK_FLOWER2
+  jr .not_water
 .not_flower:
 
   cp BLOCK_WATER

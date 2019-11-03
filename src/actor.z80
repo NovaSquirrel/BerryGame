@@ -1051,11 +1051,15 @@ EnemyCollideWithPlayer:
   cooldown [PlayerHealth]
 
 .just_kill:
+  ldh a, [KeyDown]
+  and KEY_A
+  jr z, .no_bump
   ; Slight bump upwards
   ld a, low(-$50)
   ldh [PlayerVYL], a
   ld a, high(-$50)
   ldh [PlayerVYH], a
+.no_bump:
   ; Can surf again
   xor a
   ldh [PlayerSurfNeedGround], a
