@@ -446,6 +446,7 @@ ShowDie:
 .init_loop:
   ldh a, [PlayerPY]
   add 8
+  scale_y b
   ld [hl+], a
 
   ldh a, [CameraPX]
