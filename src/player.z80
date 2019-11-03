@@ -47,15 +47,85 @@ RunPlayer:
 .no_jump_cancel:
 
 
+  ldh a, [KeyNew]
+  and KEY_LEFT|KEY_RIGHT|KEY_A
+  jr nz, .NoMoreSurf
+
+  ; Surf!
+  ldh a, [PlayerSurfing]
+  or a
+  jr z, .NotSurf
+    ld h, actors>>8
+    ldh a, [PlayerSurfIndex]
+    ld l, a
+    ld a, [hl]
+    or a
+    jr nz, .NoStopSurf
+.NoMoreSurf:
+      xor a
+      ldh [PlayerSurfing], a
+      jr .NotSurf
+.NoStopSurf:
+    ; Move along with the burger
+    ld de, 5
+    add hl, de
+    ld a, [hl+]
+    ldh [PlayerPXL], a
+    ld a, [hl+]
+    ldh [PlayerPXH], a
+    call OfferJump
+.NotSurf:
+
+
   ; Shoot blocks
   ldh a, [KeyNew] ;or KeyDown
   and KEY_B
-  jr z, .NotShoot
+  jp z, .NotShoot
   ld a, [PlayerShootCooldown]
   or a
   jr nz, .NotShoot
   call EnemyFindFree
   jr nc, .NotShoot
+
+  ; ---------------
+  ldh a, [KeyDown]
+  and KEY_DOWN
+  jr z, .UseBlock
+.UseBurger:
+  ; ---------------
+  ldh a, [PlayerSurfNeedGround]
+  or a
+  jr nz, .NotShoot
+
+  ld a, L
+  ldh [PlayerSurfIndex], a
+  ld a, 1
+  ldh [PlayerSurfing], a
+  ldh [PlayerSurfNeedGround], a
+
+  ldh a, [PlayerDir]
+  or ACTOR_PLAYER_BURGER
+  ld [hl+], a
+
+  ; Set Y velocity
+  xor a
+  ld [hl+], a
+  ld [hl+], a
+  ldh [PlayerVYL], a
+  ldh [PlayerVYH], a
+
+  ; Position below player
+  ldh a, [PlayerPYL]
+  add $80
+  ld [hl+], a
+  ldh a, [PlayerPYH]
+  adc 1
+  ld [hl+], a
+  ; ---------------
+
+  jr .WasNotBlock
+.UseBlock:
+  ; ---------------
   ldh a, [PlayerDir]
   or ACTOR_BLOCK
   ld [hl+], a
@@ -72,6 +142,10 @@ RunPlayer:
   ldh a, [PlayerPYH]
   dec a
   ld [hl+], a
+  ; ---------------
+.WasNotBlock:
+
+
   ldh a, [PlayerPXL]
   ld [hl+], a
   ldh a, [PlayerPXH]
@@ -145,7 +219,7 @@ RunPlayer:
 .NotClimbing:
 
   bit 5, b
-  jr z, .NotLeft
+  jr z, .NotMoveLeft
   ldh a, [PlayerPXL]
   sub 24
   ldh [PlayerPXL], a
@@ -155,6 +229,7 @@ RunPlayer:
 
   ld a, $80
   ldh [PlayerDir], a
+.NotMoveLeft:
 
   ; Test wall collision
   ld h, level_map>>8
@@ -164,10 +239,11 @@ RunPlayer:
   jr c, .NotLeft
   ld a, $100 - COLLISION_OFFX
   ldh [PlayerPXL],a
+  call PlayerSurfingWall
 .NotLeft:
 
   bit 4, b
-  jr z, .NotRight
+  jr z, .NotMoveRight
   ldh a, [PlayerPXL]
   add 24
   ldh [PlayerPXL], a
@@ -177,6 +253,7 @@ RunPlayer:
 
   xor a
   ldh [PlayerDir], a
+.NotMoveRight:
 
   ; Test wall collision
   ld h, level_map>>8
@@ -186,6 +263,7 @@ RunPlayer:
   jr c, .NotRight
   ld a, COLLISION_OFFX
   ldh [PlayerPXL],a
+  call PlayerSurfingWall
 .NotRight:
 
   ; Keep the player within the playfield horizontally
@@ -195,6 +273,8 @@ RunPlayer:
   ldh a, [PlayerPXL]
   cp $20
   jr nc, .NoFixLeft
+  xor a
+  ldh [PlayerSurfing], a
   ld a, $20
   ldh [PlayerPXL], a
 .NoFixLeft:
@@ -203,10 +283,14 @@ RunPlayer:
   cp 15
   jr nz, .NoFixRight
   xor a
+  ldh [PlayerSurfing], a
   ldh [PlayerPXL], a
 .NoFixRight:
 
 
+  ldh a, [PlayerSurfing]
+  or a
+  jr nz, .PlayerNoGravity
   ld a, [PlayerClimbing]
   or a
   jr nz, .PlayerNoGravity
@@ -266,6 +350,8 @@ LadderCollision:
   jr nz, .not_ladder
 
 .yes:
+  xor a
+  ldh [PlayerSurfNeedGround], a
   call OfferJump
   ldh a, [KeyDown]
   and KEY_UP|KEY_DOWN
@@ -442,9 +528,14 @@ DrawPlayer:
 
 WalkLegAnim:
   db 4, 6
-  db 8, 6
+  db 8, 10
   db 4, 6
-  db 4, 10
+  db 8, 10
+
+;  db 4, 6
+;  db 8, 6
+;  db 4, 6
+;  db 4, 10
 
 ; --------------------------------
 PlayerLevelCollision:
@@ -644,6 +735,7 @@ PlayerLevelCollision:
   xor a
   ldh [PlayerVYL], a
   ldh [PlayerVYH], a
+  ldh [PlayerSurfNeedGround], a
 
   ldh a, [PlayerPYL]
   ld [PlayerScrollPYL], a
@@ -764,3 +856,23 @@ IsSolidOnTop: ; carry = clear if solid, set if nonsolid
   cp 64
   pop hl
   ret
+
+; If you bump into a wall while surfing, reverse the direction?
+PlayerSurfingWall:
+  ldh a, [PlayerSurfing]
+  or a
+  ret z
+  ld h, actors>>8
+  ldh a, [PlayerSurfIndex]
+  ld L, a
+
+  ldh a, [PlayerDir] 
+  xor 128
+  ld c, a
+
+  ld a, [hl]
+  and $7F
+  or c
+  ld [hl], a
+  ret
+

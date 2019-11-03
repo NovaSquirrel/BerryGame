@@ -39,6 +39,11 @@ PlayerVYH:      db
 PlayerPX:       db ; Pixels X
 PlayerPY:       db ; Pixels Y
 PlayerDir:      db
+
+PlayerSurfing:   db
+PlayerSurfIndex: db
+PlayerSurfNeedGround: db
+
 CameraX:        ds 2
 CameraPX:       ds 2
 

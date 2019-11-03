@@ -93,19 +93,20 @@ RunActors:
 ActorNone:
   ret
 
-ActorBlock:
-;  ld hl, actor_pyl
-;  add hl, de
-;  ldh a, [PlayerPYL]
-;  ld [hl+], a
-;  ldh a, [PlayerPYH]
-;  dec a
-;  ld [hl+], a
-;  ldh a, [PlayerPXL]
-;  ld [hl+], a
-;  ldh a, [PlayerPXH]
-;  ld [hl], a
+ActorPlayerBurger:
+  ld a, $20
+  call EnemyMoveForward
+  call EnemyDespawnTimer
 
+  ; Get block color
+  ld hl, actor_var1
+  add hl, de
+  ld b, [hl]
+
+  ld a, $48
+  jp DrawActor
+
+ActorBlock:
   ld a, $10
   call EnemyMoveForward
 
@@ -115,8 +116,7 @@ ActorBlock:
   ; Get block color
   ld hl, actor_var1
   add hl, de
-  ld a, [hl]
-  ld b, a
+  ld b, [hl]
 
   ld a, $18
   jp DrawActorWithoutFlip
@@ -934,8 +934,11 @@ EnemyCollideWithBlocks:
 .loop:
   ld a, [hl]
   and 127
+  cp ACTOR_PLAYER_BURGER
+  jr z, .burger_is_good_too
   cp ACTOR_BLOCK
   jr nz, .next
+.burger_is_good_too:
   ; It's a block!
   ; Skip ahead to the block's pixel Y coordinate to test against the enemy's
   ld a, l
@@ -1043,6 +1046,9 @@ EnemyCollideWithPlayer:
   ldh [PlayerVYL], a
   ld a, high(-$50)
   ldh [PlayerVYH], a
+  ; Can surf again
+  xor a
+  ldh [PlayerSurfNeedGround], a
 
   ; Kill this enemy
   ld hl, actor_timer
@@ -1612,3 +1618,4 @@ ActorPointers:
   dw ActorMine
 ; End of selectable actors
   dw ActorNumberLeft
+  dw ActorPlayerBurger
