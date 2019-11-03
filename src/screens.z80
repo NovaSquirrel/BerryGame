@@ -561,22 +561,22 @@ ShowPreLevel:
 .NotChipLevel:
   ld hl, .DefeatText
 .WasChipLevel:
-  ld de, SCREEN1+2+17*32
+  ld de, SCREEN1+2+16*32
   call strcpy
 
   pop af
   jr z, .DontWriteChipCount
-  ld hl, SCREEN1+2+8+17*32
+  ld hl, SCREEN1+2+4+16*32
   call PrintNybble
 .DontWriteChipCount:
 
   ; Write level number
   ld hl, .LevelText
-  ld de, SCREEN1+2
+  ld de, SCREEN1+2+32
   call strcpy
   ldh a, [LevelNumber]
   inc a ; level 0 displays as level 1
-  ld hl, SCREEN1+2+6
+  ld hl, SCREEN1+2+6+32
   call PrintDecimalByte
  
   ; Wait for an A press
@@ -595,7 +595,7 @@ ShowPreLevel:
 .LevelText:
   db "Level",0
 .ChipText:
-  db "Collect ## chips",0
+  db "Get ## berries!",0
 .DefeatText:
   db "Defeat enemies!",0
 
