@@ -129,7 +129,7 @@ ApplyAutotile:
   jr nz, .not_flower
   call GetRandomNumber
   rra
-  jr c, .not_flower
+  jr c, .not_water
   ld [hl], BLOCK_FLOWER2
   jr .not_water
 .not_flower:
