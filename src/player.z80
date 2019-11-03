@@ -335,6 +335,8 @@ LadderCollision:
   call PlayerGetMiddleX
   cp BLOCK_SPRING
   jr nz, .not_spring
+    xor a
+    ldh [PlayerSurfNeedGround], a
     ld a, low(-$54)
     ldh [PlayerVYL],a
     ld a, high(-$54)
