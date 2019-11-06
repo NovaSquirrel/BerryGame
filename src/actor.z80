@@ -1439,6 +1439,13 @@ EnemyAutopauseWhenWrap:
     ld [hl], astate_autopaused
     inc l
     ld [hl], 60
+
+    ; Clear velocity
+    ld hl, actor_vyl
+    add hl, de
+    ld [hl], 0
+    inc l    
+    ld [hl], 0
 .NoPauseFromBottom:
   ret
 
