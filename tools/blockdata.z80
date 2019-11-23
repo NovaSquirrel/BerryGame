@@ -38,9 +38,9 @@ Metatiles:
   db $0c, $0c, $0c, $0c ; FALL_PLATFORM_LR
   db $66, $67, $76, $77 ; CHECKER
   db $26, $27, $36, $37 ; ROCK
-  db $6c, $6d, $7c, $7d ; CLOUD_L
-  db $6e, $6e, $7d, $7d ; CLOUD_M
-  db $6e, $6f, $7d, $7f ; CLOUD_R
+  db $6b, $6c, $7b, $7c ; CLOUD_L
+  db $6d, $6e, $7c, $7c ; CLOUD_M
+  db $6f, $0c, $7f, $0c ; CLOUD_R
   db $24, $25, $34, $35 ; POLE
   db $40, $41, $50, $51 ; LOG
 

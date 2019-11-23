@@ -192,11 +192,50 @@ ApplyAutotile:
 
   inc l
   jp nz, .loop
+
+
+  ld b, 7 ; Number of tries
+  ; H is still the top byte of the playfield address
+AddCloudLoop:
+  call GetRandomNumber
+  and $3f
+  cp $30
+  jr nc, AddCloudLoop ; Fourth row? Try again
+  ld L, a
+
+  ; If it's on the last two columns, just try again without reducing the try count
+  and $f
+  cp $e
+  jr nc, AddCloudLoop
+
+  ; Check for anything there
+  ld a, [hl+]
+  or a
+  jr nz, .fail
+  ld a, [hl+]
+  or a
+  jr nz, .fail
+  ld a, [hl]
+  or a
+  jr nz, .fail
+
+  ; Write in the cloud
+  ld a, BLOCK_CLOUD_R
+  ld [hl-], a
+  ld a, BLOCK_CLOUD_M
+  ld [hl-], a
+  ld [hl], BLOCK_CLOUD_L
+
+.fail:
+  dec b
+  jr nz, AddCloudLoop
+
   ret
 
 RenderLevel:
   call ApplyAutotile
 
+; Actually render the level now
   ld bc, level_map
   ld de, SCREEN1
 .loop:

@@ -373,7 +373,7 @@ BG_Palette:
   RGB_Color 17, 19, 31
   RGB_Color  7,  7,  7
   RGB_Color 13, 13, 13
-  RGB_Color 22, 22, 22
+  RGB_Color 31, 31, 31
 ; 1 grass
   RGB_Color 17, 19, 31
   RGB_Color  0, 10,  0

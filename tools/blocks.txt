@@ -202,16 +202,16 @@ solid
 q 6,0
 
 +CLOUD_L
-t 12,4 13,4
-t 12,5 13,5
+t 11,4 12,4
+t 11,5 12,5
 
 +CLOUD_M
-t 14,4 14,4
-t 13,5 13,5
+t 13,4 14,4
+t 12,5 12,5
 
 +CLOUD_R
-t 14,4 15,4
-t 13,5 15,5
+t 15,4 0:solid0
+t 15,5 0:solid0
 
 
 palette pal_orange
