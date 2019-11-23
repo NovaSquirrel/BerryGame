@@ -220,11 +220,20 @@ AddCloudLoop:
   jr nz, .fail
 
   ; Write in the cloud
-  ld a, BLOCK_CLOUD_R
+  ; (Either have the empty space on the left or right)
+  ld c, BLOCK_CLOUD_R
+  call GetRandomNumber
+  rra
+  jr nc, .leftclouds
+    ld c, BLOCK_CLOUD_R2
+.leftclouds:
+
+  ld a, c
   ld [hl-], a
-  ld a, BLOCK_CLOUD_M
+  dec a
   ld [hl-], a
-  ld [hl], BLOCK_CLOUD_L
+  dec a
+  ld [hl], a
 
 .fail:
   dec b

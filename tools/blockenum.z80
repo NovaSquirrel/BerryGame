@@ -40,5 +40,8 @@
   enum_elem BLOCK_CLOUD_L
   enum_elem BLOCK_CLOUD_M
   enum_elem BLOCK_CLOUD_R
+  enum_elem BLOCK_CLOUD_L2
+  enum_elem BLOCK_CLOUD_M2
+  enum_elem BLOCK_CLOUD_R2
   enum_elem BLOCK_POLE
   enum_elem BLOCK_LOG

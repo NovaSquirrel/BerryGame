@@ -41,6 +41,9 @@ Metatiles:
   db $6b, $6c, $7b, $7c ; CLOUD_L
   db $6d, $6e, $7c, $7c ; CLOUD_M
   db $6f, $0c, $7f, $0c ; CLOUD_R
+  db $0c, $6b, $0c, $7b ; CLOUD_L2
+  db $6c, $6d, $7c, $7c ; CLOUD_M2
+  db $6e, $6f, $7c, $7f ; CLOUD_R2
   db $24, $25, $34, $35 ; POLE
   db $40, $41, $50, $51 ; LOG
 
@@ -85,5 +88,8 @@ MetatileFlags:
   db 0 ; CLOUD_L
   db 0 ; CLOUD_M
   db 0 ; CLOUD_R
+  db 0 ; CLOUD_L2
+  db 0 ; CLOUD_M2
+  db 0 ; CLOUD_R2
   db 3 ; POLE
   db 3 ; LOG
