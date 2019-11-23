@@ -18,7 +18,6 @@
 SECTION "editor", ROM0
 
 ShowEditorFromLevel:
-  call wait_vblank
   call ScreenOff
   call LoadFont
   call UploadTitlePalette
