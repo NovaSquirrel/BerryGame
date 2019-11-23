@@ -40,6 +40,10 @@ MainInit:
   ld [RainbowRGBTIndex], a
 
   ; Write the paused text
+  ld hl, SCREEN2
+  ld a, $c ; blank
+  ld c, 20
+  call memset8
   ld hl, PausedText
   ld de, SCREEN2+7
   ld c, 6
@@ -66,6 +70,7 @@ MainInit:
   call LoadLevel
   call RenderLevel
   call UploadLevelPalette
+  call LoadLevelTiles
 
   ; Erase all initial sprites
   call ClearAndWriteOAM
@@ -231,6 +236,7 @@ NextLevel:
   inc a
   ldh [LevelNumber], a
   call ScreenOff
+  call LoadFont
   jp ShowPreLevel
 .not_skip:
 
@@ -259,7 +265,7 @@ Paused:
   jp MainLoop
 
 PausedText:
-  db "Paused"
+  db $1a, $1b, $1c, $1d, $1e, $1f
 
 Init12PixelEffect:
   ; Get the 12 pixel tall tile effect ready

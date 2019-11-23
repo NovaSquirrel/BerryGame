@@ -2,47 +2,47 @@
 SECTION "metatiledata", ROM0
 Metatiles:
   db $0c, $0c, $0c, $0c ; EMPTY
-  db $a0, $a1, $b0, $b1 ; SOLID
-  db $c6, $c8, $d6, $d8 ; DIRT
-  db $c6, $c8, $d9, $db ; DIRT_D
-  db $c9, $cb, $d6, $d8 ; DIRT_U
-  db $c9, $cb, $d9, $db ; DIRT_UD
-  db $c6, $c7, $d6, $d7 ; DIRT_R
-  db $c6, $c7, $d9, $dc ; DIRT_RD
-  db $c9, $ca, $d6, $ea ; DIRT_RU
-  db $c9, $ca, $d9, $da ; DIRT_RUD
-  db $c7, $c8, $d7, $d8 ; DIRT_L
-  db $c7, $c8, $dc, $db ; DIRT_LD
-  db $ca, $cb, $ea, $d8 ; DIRT_LU
-  db $ca, $cb, $da, $db ; DIRT_LUD
-  db $c7, $c7, $d7, $d7 ; DIRT_LR
-  db $c7, $c7, $dc, $dc ; DIRT_LRD
-  db $ca, $ca, $ea, $ea ; DIRT_LRU
-  db $ca, $ca, $da, $da ; DIRT_LRUD
-  db $cc, $cc, $bc, $bc ; WATER
-  db $ac, $ac, $bc, $bc ; WATER_TOP
-  db $c4, $c5, $d4, $d5 ; LADDER
-  db $e2, $e3, $f2, $f3 ; SPRING
-  db $0c, $0c, $fd, $fe ; PRESSED_SPRING
-  db $a2, $a3, $b2, $b3 ; FENCE
-  db $c2, $c3, $d2, $d3 ; GRASS
-  db $a8, $a9, $b8, $b9 ; FLOWER1
-  db $aa, $ab, $ba, $bb ; FLOWER2
-  db $ad, $af, $0c, $0c ; PLATFORM
-  db $ae, $af, $0c, $0c ; PLATFORM_L
-  db $ad, $ae, $0c, $0c ; PLATFORM_R
-  db $ae, $ae, $0c, $0c ; PLATFORM_LR
+  db $20, $21, $30, $31 ; SOLID
+  db $46, $48, $56, $58 ; DIRT
+  db $46, $48, $59, $5b ; DIRT_D
+  db $49, $4b, $56, $58 ; DIRT_U
+  db $49, $4b, $59, $5b ; DIRT_UD
+  db $46, $47, $56, $57 ; DIRT_R
+  db $46, $47, $59, $5c ; DIRT_RD
+  db $49, $4a, $56, $6a ; DIRT_RU
+  db $49, $4a, $59, $5a ; DIRT_RUD
+  db $47, $48, $57, $58 ; DIRT_L
+  db $47, $48, $5c, $5b ; DIRT_LD
+  db $4a, $4b, $6a, $58 ; DIRT_LU
+  db $4a, $4b, $5a, $5b ; DIRT_LUD
+  db $47, $47, $57, $57 ; DIRT_LR
+  db $47, $47, $5c, $5c ; DIRT_LRD
+  db $4a, $4a, $6a, $6a ; DIRT_LRU
+  db $4a, $4a, $5a, $5a ; DIRT_LRUD
+  db $4c, $4c, $3c, $3c ; WATER
+  db $2c, $2c, $3c, $3c ; WATER_TOP
+  db $44, $45, $54, $55 ; LADDER
+  db $62, $63, $72, $73 ; SPRING
+  db $0c, $0c, $7d, $7e ; PRESSED_SPRING
+  db $22, $23, $32, $33 ; FENCE
+  db $42, $43, $52, $53 ; GRASS
+  db $28, $29, $38, $39 ; FLOWER1
+  db $2a, $2b, $3a, $3b ; FLOWER2
+  db $2d, $2f, $0c, $0c ; PLATFORM
+  db $2e, $2f, $0c, $0c ; PLATFORM_L
+  db $2d, $2e, $0c, $0c ; PLATFORM_R
+  db $2e, $2e, $0c, $0c ; PLATFORM_LR
   db $0c, $0c, $0c, $0c ; FALL_PLATFORM
   db $0c, $0c, $0c, $0c ; FALL_PLATFORM_L
   db $0c, $0c, $0c, $0c ; FALL_PLATFORM_R
   db $0c, $0c, $0c, $0c ; FALL_PLATFORM_LR
-  db $e6, $e7, $f6, $f7 ; CHECKER
-  db $a6, $a7, $b6, $b7 ; ROCK
-  db $ec, $ed, $fc, $fd ; CLOUD_L
-  db $ee, $ee, $fd, $fd ; CLOUD_M
-  db $ee, $ef, $fd, $ff ; CLOUD_R
-  db $a4, $a5, $b4, $b5 ; POLE
-  db $c0, $c1, $d0, $d1 ; LOG
+  db $66, $67, $76, $77 ; CHECKER
+  db $26, $27, $36, $37 ; ROCK
+  db $6c, $6d, $7c, $7d ; CLOUD_L
+  db $6e, $6e, $7d, $7d ; CLOUD_M
+  db $6e, $6f, $7d, $7f ; CLOUD_R
+  db $24, $25, $34, $35 ; POLE
+  db $40, $41, $50, $51 ; LOG
 
 MetatileFlags:
   db 0 ; EMPTY

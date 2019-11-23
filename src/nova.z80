@@ -72,7 +72,7 @@ Init:
 
   ; Upload graphics (compressed)
   ld hl, VRAM_LOW
-  ld de, graphics
+  ld de, graphics_sprites
   ld b, 0
   call pb16_unpack_block
   ld b, 128
@@ -83,7 +83,7 @@ Init:
   cp $11
   jr z, .IsColor
   ld hl, gb_indicator
-  ld de, VRAM_LOW+($21*16)
+  ld de, VRAM_LOW+($22*16)
   ld c, 16
   call memcpy8
 .IsColor:
@@ -101,7 +101,15 @@ Init:
 
 ; -----------------------------------------
 
-graphics:
-INCBIN "../chr/nova.pb16"
+graphics_sprites:
+INCBIN "../chr/sprites.pb16"
+graphics_shared:
+INCBIN "../chr/shared.pb16"
+graphics_font:
+INCBIN "../chr/font.pb16"
+
+graphics_level:
+INCBIN "../chr/level.pb16"
+
 gb_indicator:
 INCBIN "../chr/gb_indicator.chr"

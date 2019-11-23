@@ -1,4 +1,4 @@
-alias main_tiles $a0
+alias main_tiles $20
 alias global_palette 0
 alias terrain_palette 1
 

@@ -500,3 +500,14 @@ ClearAndWriteOAM:
   call ClearOAM
   ld a, sprites>>8
   jp run_dma
+
+LoadFont:
+  ld de, graphics_font
+.shared:
+  ld hl, VRAM_LOW+(256*16)
+  ld b, 128
+  jp pb16_unpack_block
+
+LoadLevelTiles:
+  ld de, graphics_level
+  jr LoadFont.shared
