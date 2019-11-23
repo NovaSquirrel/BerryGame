@@ -360,7 +360,7 @@ CreditsText3:
   db "novasquirrel.com",0
 
 CreditsText4:
-  db "Enemy sprites",0
+  db "Some enemy art",0
 CreditsText5:
   db "by PinoBatch",0
 CreditsText6:
@@ -430,11 +430,11 @@ HelpText9:
 ClearAndAddTitleText:
   call ClearNametable
   ld hl, TitleText
-  ld de, SCREEN1+5+1*32
+  ld de, SCREEN1+4+1*32
   jp strcpy
 
 TitleText:
-  db "Berry game?",0
+  db "Nova+FHBG GB",0
 
 ; ---------------------------------------------------
 
