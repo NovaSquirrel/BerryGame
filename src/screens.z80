@@ -19,18 +19,25 @@ SECTION "screens", ROM0
 
 ShowTitle:
   ; Decompress title level
-  ld de, level_title
-  call DecompressMap
-  call RenderLevel
+  call ClearNametable
   call UploadLevelPalette
+  call UploadTitlePalette
 
   ; "Forehead"
   ld hl, TitleText1
-  ld de, SCREEN1+2+6*32
+  ld de, SCREEN1+5+6*32
   call strcpy
   ; "Block Guy"
   ld hl, TitleText2
-  ld de, SCREEN1+3+7*32
+  ld de, SCREEN1+6+7*32
+  call strcpy
+  ; "+Nova"
+  ld hl, TitleText3
+  ld de, SCREEN1+7+9*32
+  call strcpy
+  ; "Press start"
+  ld hl, PressStart
+  ld de, SCREEN1+5+16*32
   call strcpy
 
   ; On the Game Boy Color, invert the title
@@ -39,23 +46,20 @@ ShowTitle:
   jr nz, .NotColor
   vram_bank_1
   ; Make the bottom row inverted
-  ld hl, SCREEN1+2+6*32
+  ld hl, SCREEN1+5+6*32
   ld a, 7
   ld c, 10
   call memset8
-  ld hl, SCREEN1+2+7*32
+  ld hl, SCREEN1+5+7*32
   ld c, 10
   call memset8
   vram_bank_0
 .NotColor:
 
-  call ClearOAM
-  call RunPlayer
-
   ; Clear sprites
+  call ClearOAM
   ld a, sprites>>8
   call run_dma
-
   call ScreenOn
 
   ; Wait for player to press A
@@ -65,28 +69,21 @@ ShowTitle:
   ld a, sprites>>8
   call run_dma
 
-  ; Run the player routine without allowing any key presses
-  call ClearOAM
-  xor a
-  ldh [KeyDown], a
-  ldh [KeyNew], a
-  call RunPlayer
-
   call readkeys
   ldh a, [KeyNew]
   and KEY_A
   jr z, .loop
 
   call ScreenOff
-
   call ClearOAM
-
   jp ShowMainMenu
 
 TitleText1:
   db "Forehead",0
 TitleText2:
   db "Block Guy",0
+TitleText3:
+  db "& Nova!",0
 PressStart:
   db "Push Start!",0
 
