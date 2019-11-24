@@ -181,7 +181,7 @@ level_pillars:
   db LVL_DONE, $7b
 
 level_stairs:
-  db LVL_V_CHECKER|11, $00
+  db LVL_V_CHECKER|9, $00
   db LVL_V_CHECKER|11, $0f
   db LVL_H_CHECKER|5, $01
   db LVL_H_CHECKER|5, $09
@@ -204,6 +204,7 @@ level_stairs:
   db LVL_CHECKER, $aa
   db LVL_RECT|LVL_POLE,    $84, $20
   db LVL_PLAT,    $69
+  db LVL_CHECKER, $b0
   db LVL_DONE, $23
 
 level_title:
